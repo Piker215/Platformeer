@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dn6pfc13pyg6k"]
+
+[ext_resource type="PackedScene" uid="uid://btxsxmhag5uds" path="res://scenes/playerreal.tscn" id="1_ibkli"]
+
+[node name="Node2D" type="Node2D" unique_id=1713997475]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1055616801]
+
+[node name="CharacterBody2D" parent="." unique_id=948001584 instance=ExtResource("1_ibkli")]

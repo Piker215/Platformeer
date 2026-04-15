@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://btxsxmhag5uds"]
+
+[ext_resource type="Script" uid="uid://bor7cvlvq6ycr" path="res://playerreal.gd" id="1_w5avn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cvfh"]
+size = Vector2(17, 15)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_w5avn"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=948001584]
+script = ExtResource("1_w5avn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1138147813]
+position = Vector2(1.5, -7.5)
+shape = SubResource("RectangleShape2D_8cvfh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1802999236]
+top_level = true
+position = Vector2(1.5, -7.500001)
+scale = Vector2(17, 15)
+texture = SubResource("CanvasTexture_w5avn")

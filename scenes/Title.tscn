@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dj0qnlsdmvbg0"]
+
+[ext_resource type="PackedScene" uid="uid://dgirs4r5fk7w4" path="res://scenes/player.tscn" id="1_ascc0"]
+[ext_resource type="Script" uid="uid://dfstnbqd54f4k" path="res://scenes/title.gd" id="1_lq0lj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6e84v"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6e84v"]
+
+[node name="Node2D" type="Node2D" unique_id=251634216]
+script = ExtResource("1_lq0lj")
+
+[node name="Player" parent="." unique_id=1451863589 instance=ExtResource("1_ascc0")]
+position = Vector2(393, 216)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2104537456]
+position = Vector2(6, 0)
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_6e84v")
+constant_linear_velocity = Vector2(2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1132466221]
+position = Vector2(387, 229)
+shape = SubResource("WorldBoundaryShape2D_6e84v")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1079281767]
+position = Vector2(389, 229)
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=686344231]
+offset_left = 340.0
+offset_top = 80.0
+offset_right = 445.0
+offset_bottom = 121.0
+text = "The Game"
+
+[node name="Label" type="Label" parent="." unique_id=2147280778]
+offset_left = 348.0
+offset_top = 128.0
+offset_right = 436.0
+offset_bottom = 177.0
+text = "Press Enter
+To Start"
+horizontal_alignment = 1
+vertical_alignment = 1
