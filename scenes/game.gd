@@ -1,11 +1,11 @@
 extends Node2D
-
+#var duplicator := $mushroom.duplicate()
+#var wait := await get_tree().await_timer(1.5).timeout
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-#	var duplicator := $mushroom.duplicate()
-#	for n in 4:
-#		duplicator
+	#for n in 4:
+	#duplicator
 	pass # Replace with function body.
 
 
