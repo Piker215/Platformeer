@@ -6,7 +6,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5avn"]
 
-[node name="playerreal" type="CharacterBody2D" unique_id=125704177]
+[node name="playerreal" type="CharacterBody2D" unique_id=125704177 groups=["movings"]]
 script = ExtResource("1_w5avn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=633287436]
