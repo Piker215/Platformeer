@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dra1f2ocvcdxe" path="res://scenes/game.gd" id="1_cpr0p"]
 [ext_resource type="PackedScene" uid="uid://btxsxmhag5uds" path="res://scenes/playerreal.tscn" id="1_ibkli"]
 [ext_resource type="Script" uid="uid://bmrs86wk4gbfs" path="res://scenes/mushroom.gd" id="2_qbsmt"]
+[ext_resource type="PackedScene" uid="uid://duwhkvnstlcnj" path="res://scenes/lenemy.tscn" id="3_78awf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbsmt"]
 size = Vector2(20, 563)
@@ -14,12 +15,15 @@ size = Vector2(1150, 22)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_78awf"]
 
-[node name="Node2D" type="Node2D" unique_id=1713997475]
+[node name="game" type="Node2D" unique_id=1713997475]
 script = ExtResource("1_cpr0p")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1055616801]
 
 [node name="CharacterBody2D" parent="." unique_id=948001584 instance=ExtResource("1_ibkli")]
+
+[node name="CharacterBody2D2" parent="." unique_id=1732548339 instance=ExtResource("3_78awf")]
+position = Vector2(506, 1)
 
 [node name="collider2" type="StaticBody2D" parent="." unique_id=471205297]
 position = Vector2(-581, 2)
