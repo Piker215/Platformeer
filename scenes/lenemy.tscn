@@ -1,17 +1,23 @@
 [gd_scene format=3 uid="uid://duwhkvnstlcnj"]
 
 [ext_resource type="Script" uid="uid://dlonkr4l8w1o1" path="res://scenes/lenemy.gd" id="1_66257"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nckey"]
+[ext_resource type="Script" uid="uid://baswjqplt3q1g" path="res://scenes/lenemee.gd" id="2_spysg"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_lj8jo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nckey"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1732548339]
 script = ExtResource("1_66257")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=170839090]
-shape = SubResource("RectangleShape2D_nckey")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=33668728]
 scale = Vector2(20, 20)
 texture = SubResource("CanvasTexture_lj8jo")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1409341239]
+script = ExtResource("2_spysg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=124006413]
+shape = SubResource("RectangleShape2D_nckey")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

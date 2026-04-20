@@ -5,9 +5,10 @@
 [ext_resource type="Script" uid="uid://bmrs86wk4gbfs" path="res://scenes/mushroom.gd" id="2_qbsmt"]
 [ext_resource type="PackedScene" uid="uid://duwhkvnstlcnj" path="res://scenes/lenemy.tscn" id="3_78awf"]
 [ext_resource type="Script" uid="uid://bhgnulp4hexxo" path="res://scenes/killbrick.gd" id="5_s0nni"]
-[ext_resource type="Script" uid="uid://cnc3ly1wwjra5" path="res://scenes/goldenmushroom.gd" id="6_aug50"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cpr0p"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_s0nni"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_78awf"]
 
@@ -22,17 +23,12 @@ size = Vector2(20, 563)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibkli"]
 size = Vector2(1150, 22)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0nni"]
-size = Vector2(20, 21)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_aug50"]
-
 [node name="game" type="Node2D" unique_id=1713997475]
 script = ExtResource("1_cpr0p")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1055616801]
 
-[node name="playerreal" parent="." unique_id=948001584 groups=["movingse", "movingy"] instance=ExtResource("1_ibkli")]
+[node name="playerreal" parent="." unique_id=948001584 groups=["movingse"] instance=ExtResource("1_ibkli")]
 
 [node name="lenemy" parent="." unique_id=1732548339 instance=ExtResource("3_78awf")]
 position = Vector2(506, 1)
@@ -45,8 +41,13 @@ script = ExtResource("2_qbsmt")
 position = Vector2(-2, 20)
 shape = SubResource("RectangleShape2D_cpr0p")
 
+[node name="mushysprite" type="Sprite2D" parent="mushroom" unique_id=246342954]
+position = Vector2(-2, 20)
+scale = Vector2(20.000004, 19.999998)
+texture = SubResource("CanvasTexture_s0nni")
+
 [node name="mushsprite" type="Sprite2D" parent="mushroom" unique_id=880890974]
-position = Vector2(-2, 20.000004)
+position = Vector2(-2.0000064, 20.000004)
 scale = Vector2(19.999994, 19.999998)
 texture = SubResource("CanvasTexture_78awf")
 
@@ -90,21 +91,6 @@ position = Vector2(506, -14)
 position = Vector2(37, 15)
 shape = SubResource("RectangleShape2D_qbsmt")
 
-[node name="goldenmushroom" type="Area2D" parent="." unique_id=964769041]
-position = Vector2(228.17285, -101.40979)
-script = ExtResource("6_aug50")
-
-[node name="colli" type="CollisionShape2D" parent="goldenmushroom" unique_id=2020461669]
-position = Vector2(-0.17285156, -0.09020996)
-shape = SubResource("RectangleShape2D_s0nni")
-
-[node name="goldenmushsprite" type="Sprite2D" parent="goldenmushroom" unique_id=2031283368]
-position = Vector2(-0.17285442, -0.0902105)
-scale = Vector2(20.000006, 21.000006)
-texture = SubResource("CanvasTexture_aug50")
-
 [connection signal="area_entered" from="mushroom" to="mushroom" method="_on_area_entered"]
 [connection signal="body_entered" from="mushroom" to="mushroom" method="_on_body_entered"]
 [connection signal="body_entered" from="killbrick" to="killbrick" method="_on_body_entered"]
-[connection signal="body_entered" from="goldenmushroom" to="killbrick" method="_on_goldenmushroom_body_entered"]
-[connection signal="body_entered" from="goldenmushroom" to="goldenmushroom" method="_on_body_entered"]

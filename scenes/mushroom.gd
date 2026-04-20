@@ -8,21 +8,15 @@ func _ready():
 	randomize()
 	var positionx = randf_range(-500, 500)
 	var positiony = randf_range(-200, 250)
-	$mushsprite.modulate = Color.GOLD
+	$mushsprite.modulate = Color.RED
 	position = Vector2(positionx, positiony)
 	pass 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 
 
 func _on_body_entered(body: Node2D) -> void:
 	number += 1
-	if is_clone == false:
-		move_child($mushysprite, 2)
-		$mushysprite.modulate = Color.RED
-		$mushysprite.visible = true
-		$mushsprite.visible = false
 	$mushsprite.visible = false
 	var positionx = randf_range(-500, 500)
 	var positiony = randf_range(-200, 250)
@@ -35,7 +29,6 @@ func _on_body_entered(body: Node2D) -> void:
 		$mushsprite.modulate = Color.GOLD
 		get_parent().add_child(duplicat)
 		$mushsprite.visible = true
-		$mushysprite.visible = false
 	position = Vector2(positionx, positiony)
 	
 	pass
