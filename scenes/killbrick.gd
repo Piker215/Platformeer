@@ -3,7 +3,7 @@ extends Area2D
 @onready var groupp := get_tree().get_first_node_in_group("movingse")
 @onready var distance := global_position.distance_to(groupp.global_position)
 var difficulty = 1
-var scaler = 2
+var scaler = 7/7
 var number = difficulty * scaler
 var adder = 1
 func _ready() -> void:
@@ -29,6 +29,7 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 
 func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 	var duplicator = duplicate()
+	print(difficulty)
 	adder = 0
 	difficulty = difficulty + 1
 	number = round(number)
@@ -36,4 +37,5 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 	while(number>adder):
 		get_parent().add_child(duplicator)
 		adder += 1
+		print(adder)
 	pass # Replace with function body.

@@ -118,7 +118,7 @@ offset_left = -499.0
 offset_top = -324.0
 offset_right = -327.0
 offset_bottom = -286.0
-text = "Invincibility"
+text = "Dash"
 
 [node name="progress" type="TextureProgressBar" parent="." unique_id=1688661906]
 offset_left = -294.0
@@ -138,4 +138,5 @@ wait_time = 0.1
 [connection signal="body_entered" from="killbrick" to="killbrick" method="_on_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="killbrick" method="_on_goldenmushroom_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="goldenmushroom" method="_on_body_entered"]
+[connection signal="timeout" from="progress/Timer" to="playerreal" method="_on_timer_timeout"]
 [connection signal="timeout" from="progress/Timer" to="progress" method="_on_timer_timeout"]

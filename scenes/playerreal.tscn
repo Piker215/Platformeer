@@ -13,5 +13,7 @@ script = ExtResource("1_w5avn")
 scale = Vector2(20, 20)
 texture = SubResource("CanvasTexture_2rurl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=438938481]
+[node name="collreal" type="CollisionShape2D" parent="." unique_id=438938481]
 shape = SubResource("RectangleShape2D_w5avn")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -16,7 +16,8 @@ func _ready():
 
 
 func _on_body_entered(body: Node2D) -> void:
-	number += 1
+	number += 2/7
+	round(number)
 	$mushsprite.visible = false
 	var positionx = randf_range(-500, 500)
 	var positiony = randf_range(-200, 250)
