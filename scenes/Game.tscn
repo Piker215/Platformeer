@@ -48,7 +48,7 @@ script = ExtResource("1_cpr0p")
 position = Vector2(506, 1)
 
 [node name="mushroom" type="Area2D" parent="." unique_id=981144700]
-position = Vector2(138, 21)
+position = Vector2(760, 172)
 script = ExtResource("2_qbsmt")
 
 [node name="collishroom" type="CollisionShape2D" parent="mushroom" unique_id=225235583]

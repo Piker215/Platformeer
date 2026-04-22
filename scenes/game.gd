@@ -8,8 +8,3 @@ func _ready() -> void:
 	#for n in 4:
 	#duplicator
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

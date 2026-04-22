@@ -12,6 +12,7 @@ func _ready() -> void:
 	while(1>0):
 		position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		if distance < 300:
+			position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 			return
 		else:
 			break
