@@ -1,13 +1,10 @@
 [gd_scene format=3 uid="uid://keyi7gtycrd1"]
 
-[ext_resource type="Script" uid="uid://sqe6h6rtt7er" path="res://playerdifficulty.gd" id="1_tumqd"]
+[ext_resource type="Script" uid="uid://b2xh166uu2olp" path="res://scenes/difficultyscreen.gd" id="1_28v6e"]
 [ext_resource type="Script" uid="uid://cw6cv3n0ef0mg" path="res://easy.gd" id="2_28v6e"]
 [ext_resource type="Script" uid="uid://bfisarraufpjq" path="res://medium.gd" id="3_46j36"]
 [ext_resource type="Script" uid="uid://bc8kc4ty67v8y" path="res://hard.gd" id="4_xoxwo"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3htqf"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_cx83o"]
+[ext_resource type="PackedScene" uid="uid://c1s8l461y5cv5" path="res://playerdifficulty.tscn" id="5_28v6e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lodve"]
 size = Vector2(55, 36)
@@ -18,42 +15,11 @@ size = Vector2(77, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5f6vc"]
 size = Vector2(53, 31)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g0i5u"]
-distance = 5.0
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tumqd"]
 
 [node name="difficultyscreen" type="Node2D" unique_id=1561517176]
-position = Vector2(326, 179)
-
-[node name="playerdifficulty" type="CharacterBody2D" parent="." unique_id=281196175]
-script = ExtResource("1_tumqd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="playerdifficulty" unique_id=117391261]
-shape = SubResource("RectangleShape2D_3htqf")
-
-[node name="Sprite2D" type="Sprite2D" parent="playerdifficulty" unique_id=1154754325]
-scale = Vector2(20, 20)
-texture = SubResource("CanvasTexture_cx83o")
-
-[node name="TextEdit" type="TextEdit" parent="." unique_id=458242384]
-offset_left = -103.0
-offset_top = -91.0
-offset_right = -48.0
-offset_bottom = -57.0
-text = "Easy"
-
-[node name="TextEdit2" type="TextEdit" parent="." unique_id=372053180]
-offset_left = -31.0
-offset_top = -89.0
-offset_right = 46.0
-offset_bottom = -58.0
-text = "Medium"
-
-[node name="TextEdit3" type="TextEdit" parent="." unique_id=1162479035]
-offset_left = 65.0
-offset_top = -88.0
-offset_right = 117.840454
-offset_bottom = -57.93434
-text = "Hard"
+position = Vector2(567, 358)
+script = ExtResource("1_28v6e")
 
 [node name="easy" type="Area2D" parent="." unique_id=1898254930]
 position = Vector2(-86, -38)
@@ -83,7 +49,34 @@ shape = SubResource("RectangleShape2D_5f6vc")
 position = Vector2(3, 35)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=950165105]
-shape = SubResource("WorldBoundaryShape2D_g0i5u")
+position = Vector2(-58, -2)
+shape = SubResource("WorldBoundaryShape2D_tumqd")
+
+[node name="playerdifficulty" parent="." unique_id=233652545 instance=ExtResource("5_28v6e")]
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=458242384]
+offset_left = -103.0
+offset_top = -91.0
+offset_right = -48.0
+offset_bottom = -57.0
+text = "Easy"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextEdit2" type="TextEdit" parent="." unique_id=372053180]
+offset_left = -31.0
+offset_top = -89.0
+offset_right = 46.0
+offset_bottom = -58.0
+text = "Medium"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextEdit3" type="TextEdit" parent="." unique_id=1162479035]
+offset_left = 65.0
+offset_top = -88.0
+offset_right = 117.840454
+offset_bottom = -57.93434
+text = "Hard"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="easy" to="easy" method="_on_body_entered"]
 [connection signal="body_entered" from="medium" to="medium" method="_on_body_entered"]
