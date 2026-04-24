@@ -49,7 +49,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1514412883]
 
-[node name="easy" type="Area2D" parent="." unique_id=1898254930]
+[node name="easy" type="Area2D" parent="." unique_id=1898254930 groups=["difficulty"]]
 position = Vector2(-86, -38)
 script = ExtResource("2_28v6e")
 
@@ -57,7 +57,7 @@ script = ExtResource("2_28v6e")
 position = Vector2(10.5, -35)
 shape = SubResource("RectangleShape2D_lodve")
 
-[node name="medium" type="Area2D" parent="." unique_id=493294900]
+[node name="medium" type="Area2D" parent="." unique_id=493294900 groups=["difficulty"]]
 position = Vector2(-30.688965, -45.946228)
 script = ExtResource("3_46j36")
 
@@ -65,7 +65,7 @@ script = ExtResource("3_46j36")
 position = Vector2(38.188965, -27.053772)
 shape = SubResource("RectangleShape2D_qugoy")
 
-[node name="hard" type="Area2D" parent="." unique_id=489866578]
+[node name="hard" type="Area2D" parent="." unique_id=489866578 groups=["difficulty"]]
 position = Vector2(58.451904, -40.984253)
 script = ExtResource("4_xoxwo")
 
