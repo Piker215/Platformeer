@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://bhgnulp4hexxo" path="res://scenes/killbrick.gd" id="5_s0nni"]
 [ext_resource type="Script" uid="uid://cnc3ly1wwjra5" path="res://scenes/goldenmushroom.gd" id="6_aug50"]
 [ext_resource type="Script" uid="uid://d13xemc2uh1wb" path="res://scenes/texture_progress_bar.gd" id="7_kiw3p"]
+[ext_resource type="Script" uid="uid://cw6cv3n0ef0mg" path="res://easy.gd" id="7_qy1jj"]
+[ext_resource type="Script" uid="uid://bfisarraufpjq" path="res://medium.gd" id="8_3xj3m"]
+[ext_resource type="Script" uid="uid://bc8kc4ty67v8y" path="res://hard.gd" id="9_mcffj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cpr0p"]
 
@@ -27,6 +30,15 @@ size = Vector2(1150, 22)
 size = Vector2(20, 21)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_aug50"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rd6h"]
+size = Vector2(55, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ua8r"]
+size = Vector2(77, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7sob"]
+size = Vector2(53, 31)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_400sg"]
 
@@ -120,6 +132,30 @@ offset_right = -327.0
 offset_bottom = -286.0
 text = "Dash"
 
+[node name="easy" type="Area2D" parent="." unique_id=830607078]
+position = Vector2(-798, -714.0538)
+script = ExtResource("7_qy1jj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="easy" unique_id=1196972309]
+position = Vector2(10.5, -35)
+shape = SubResource("RectangleShape2D_2rd6h")
+
+[node name="medium" type="Area2D" parent="." unique_id=693558924]
+position = Vector2(-742.68896, -722)
+script = ExtResource("8_3xj3m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="medium" unique_id=1840299893]
+position = Vector2(38.188965, -27.053772)
+shape = SubResource("RectangleShape2D_7ua8r")
+
+[node name="hard" type="Area2D" parent="." unique_id=515460524]
+position = Vector2(-653.5481, -717.038)
+script = ExtResource("9_mcffj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hard" unique_id=1086809677]
+position = Vector2(33.048096, -31.515747)
+shape = SubResource("RectangleShape2D_r7sob")
+
 [node name="progress" type="TextureProgressBar" parent="." unique_id=1688661906]
 offset_left = -294.0
 offset_top = -318.0
@@ -138,5 +174,8 @@ wait_time = 0.1
 [connection signal="body_entered" from="killbrick" to="killbrick" method="_on_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="killbrick" method="_on_goldenmushroom_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="goldenmushroom" method="_on_body_entered"]
+[connection signal="body_entered" from="easy" to="easy" method="_on_body_entered"]
+[connection signal="body_entered" from="medium" to="medium" method="_on_body_entered"]
+[connection signal="body_entered" from="hard" to="hard" method="_on_body_entered"]
 [connection signal="timeout" from="progress/Timer" to="playerreal" method="_on_timer_timeout"]
 [connection signal="timeout" from="progress/Timer" to="progress" method="_on_timer_timeout"]

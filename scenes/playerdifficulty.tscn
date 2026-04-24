@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1s8l461y5cv5"]
 
-[ext_resource type="Script" uid="uid://7887jfgtwnjx" path="res://character_body_2d.gd" id="1_vdort"]
+[ext_resource type="Script" uid="uid://7887jfgtwnjx" path="res://scenes/playerdifficulty.gd" id="1_vdort"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdort"]
 
