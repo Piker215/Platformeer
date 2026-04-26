@@ -6,9 +6,18 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xpmfr"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jmp1n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmp1n"]
+size = Vector2(110, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atuvt"]
+size = Vector2(104, 36.5)
+
 [node name="store" type="Node2D" unique_id=361815150]
 
 [node name="storeplayer" type="CharacterBody2D" parent="." unique_id=1193781359]
+position = Vector2(0, -34)
 script = ExtResource("1_jmp1n")
 
 [node name="Sprite2D" type="Sprite2D" parent="storeplayer" unique_id=1118772573]
@@ -19,3 +28,49 @@ texture = SubResource("CanvasTexture_1t8xb")
 shape = SubResource("RectangleShape2D_xpmfr")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=39511480]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2113638903]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1027870278]
+shape = SubResource("WorldBoundaryShape2D_jmp1n")
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=1432102154]
+offset_left = -98.0
+offset_top = -132.0
+offset_right = 10.0
+offset_bottom = -95.0
+text = "Invincibility"
+
+[node name="Label" type="Label" parent="." unique_id=783855276]
+offset_left = -71.0
+offset_top = -90.0
+offset_right = -31.0
+offset_bottom = -67.0
+text = "200"
+
+[node name="TextEdit2" type="TextEdit" parent="." unique_id=536799811]
+offset_left = 33.0
+offset_top = -134.0
+offset_right = 136.0
+offset_bottom = -99.0
+text = "Dash"
+
+[node name="Label2" type="Label" parent="." unique_id=553439948]
+offset_left = 58.0
+offset_top = -95.0
+offset_right = 98.0
+offset_bottom = -72.0
+text = "Free"
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=381528184]
+position = Vector2(-43, -114)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1036707184]
+shape = SubResource("RectangleShape2D_jmp1n")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1324057360]
+position = Vector2(73, -121)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=385336059]
+position = Vector2(12, 4.75)
+shape = SubResource("RectangleShape2D_atuvt")

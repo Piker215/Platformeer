@@ -1,4 +1,5 @@
 extends Area2D
+@onready var grouppp := get_tree().get_nodes_in_group("difficulty")
 @onready var goldy := get_node("../goldenmushroom")
 @onready var goldenshroomy := global_position.distance_to(goldy.global_position)
 @onready var groupp := get_tree().get_first_node_in_group("movingse")
@@ -44,7 +45,7 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 	while(number>adder):
 		var duplicator = duplicate()
 		get_parent().add_child(duplicator)
-		while(distance < 50 || goldenshroomy < 30):
+		while distance < 50 || goldenshroomy < 300:
 			duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		adder += 1
 		print(adder)
