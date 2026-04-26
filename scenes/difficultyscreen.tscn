@@ -85,6 +85,7 @@ offset_top = -126.0
 offset_right = 72.0
 offset_bottom = -103.0
 text = "Choose difficulty"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="easy" to="easy" method="_on_body_entered"]
 [connection signal="body_entered" from="medium" to="medium" method="_on_body_entered"]

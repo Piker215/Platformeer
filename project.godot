@@ -15,6 +15,10 @@ run/main_scene="uid://dj0qnlsdmvbg0"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+difficulty="*uid://bgr37dcybldeg"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
@@ -22,6 +26,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 [global_group]
 
 movingy=""
+difficulty=""
 
 [input]
 
