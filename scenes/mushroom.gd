@@ -10,7 +10,7 @@ extends Area2D
 	#var positiony = randf_range(-200, 250)
 	#$mushsprite.modulate = Color.RED
 	#position = Vector2(positionx, positiony)
-	#pass 
+	#pass
 #
 #
 #

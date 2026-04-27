@@ -18,4 +18,5 @@ func _on_body_entered(body: Node2D) -> void:
 		var duplicator = duplicate()
 		position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		get_parent().add_child(duplicator)
+		money.moneys += 5
 	pass 

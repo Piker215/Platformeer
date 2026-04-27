@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 difficulty="*uid://bgr37dcybldeg"
+ability="*uid://pntgl2gn1lq1"
+money="*uid://cp8ubqpu0fcmd"
 
 [editor_plugins]
 

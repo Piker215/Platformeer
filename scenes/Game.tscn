@@ -116,9 +116,9 @@ texture = SubResource("CanvasTexture_aug50")
 
 [node name="TextEdit" type="TextEdit" parent="." unique_id=1951402737]
 offset_left = -499.0
-offset_top = -324.0
+offset_top = -321.0
 offset_right = -327.0
-offset_bottom = -286.0
+offset_bottom = -291.0
 text = "Dash"
 
 [node name="Timer" type="Timer" parent="." unique_id=69826091]
@@ -126,8 +126,10 @@ wait_time = 0.1
 script = ExtResource("7_g4kob")
 
 [node name="progress" type="ProgressBar" parent="." unique_id=183458601]
-offset_right = 4.0
-offset_bottom = 27.0
+offset_left = -292.0
+offset_top = -320.0
+offset_right = -130.0
+offset_bottom = -293.0
 script = ExtResource("8_qy1jj")
 
 [node name="progressgraphic" type="TextureProgressBar" parent="progress" unique_id=1688661906]

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dlyyt77n1c0d8"]
 
 [ext_resource type="Script" uid="uid://7887jfgtwnjx" path="res://scenes/playerdifficulty.gd" id="1_jmp1n"]
+[ext_resource type="Script" uid="uid://hos5kpdi0r14" path="res://scenes/invincibility.gd" id="2_codmc"]
+[ext_resource type="Script" uid="uid://cfk05ikebsy3p" path="res://scenes/dash.gd" id="3_dq3y1"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_1t8xb"]
 
@@ -62,15 +64,20 @@ offset_right = 98.0
 offset_bottom = -72.0
 text = "Free"
 
-[node name="Area2D2" type="Area2D" parent="." unique_id=381528184]
+[node name="invincibility" type="Area2D" parent="." unique_id=381528184]
 position = Vector2(-43, -114)
+script = ExtResource("2_codmc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1036707184]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="invincibility" unique_id=1036707184]
 shape = SubResource("RectangleShape2D_jmp1n")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1324057360]
+[node name="dash" type="Area2D" parent="." unique_id=1324057360]
 position = Vector2(73, -121)
+script = ExtResource("3_dq3y1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=385336059]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dash" unique_id=385336059]
 position = Vector2(12, 4.75)
 shape = SubResource("RectangleShape2D_atuvt")
+
+[connection signal="body_entered" from="invincibility" to="invincibility" method="_on_body_entered"]
+[connection signal="body_entered" from="dash" to="dash" method="_on_body_entered"]
