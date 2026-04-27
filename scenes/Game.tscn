@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://duwhkvnstlcnj" path="res://scenes/lenemy.tscn" id="3_78awf"]
 [ext_resource type="Script" uid="uid://bhgnulp4hexxo" path="res://scenes/killbrick.gd" id="5_s0nni"]
 [ext_resource type="Script" uid="uid://cnc3ly1wwjra5" path="res://scenes/goldenmushroom.gd" id="6_aug50"]
-[ext_resource type="Script" uid="uid://d13xemc2uh1wb" path="res://scenes/texture_progress_bar.gd" id="7_kiw3p"]
+[ext_resource type="Script" uid="uid://dp2cv13l86vao" path="res://scenes/timer.gd" id="7_g4kob"]
+[ext_resource type="Script" uid="uid://n38smltvyc7" path="res://scenes/progress.gd" id="8_qy1jj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cpr0p"]
 
@@ -120,7 +121,17 @@ offset_right = -327.0
 offset_bottom = -286.0
 text = "Dash"
 
-[node name="progress" type="TextureProgressBar" parent="." unique_id=1688661906]
+[node name="Timer" type="Timer" parent="." unique_id=69826091]
+wait_time = 0.1
+script = ExtResource("7_g4kob")
+
+[node name="progress" type="ProgressBar" parent="." unique_id=183458601]
+offset_right = 4.0
+offset_bottom = 27.0
+script = ExtResource("8_qy1jj")
+
+[node name="progressgraphic" type="TextureProgressBar" parent="progress" unique_id=1688661906]
+layout_mode = 0
 offset_left = -294.0
 offset_top = -318.0
 offset_right = -38.0
@@ -128,15 +139,13 @@ offset_bottom = -289.31946
 texture_under = SubResource("CanvasTexture_400sg")
 texture_over = SubResource("CanvasTexture_g4kob")
 texture_progress = SubResource("GradientTexture1D_400sg")
-script = ExtResource("7_kiw3p")
-
-[node name="Timer" type="Timer" parent="progress" unique_id=69826091]
-wait_time = 0.1
 
 [connection signal="area_entered" from="mushroom" to="mushroom" method="_on_area_entered"]
 [connection signal="body_entered" from="mushroom" to="mushroom" method="_on_body_entered"]
 [connection signal="body_entered" from="killbrick" to="killbrick" method="_on_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="killbrick" method="_on_goldenmushroom_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="goldenmushroom" method="_on_body_entered"]
-[connection signal="timeout" from="progress/Timer" to="playerreal" method="_on_timer_timeout"]
-[connection signal="timeout" from="progress/Timer" to="progress" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="playerreal" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="progress/progressgraphic" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="progress" method="_on_timer_timeout"]
+[connection signal="value_changed" from="progress/progressgraphic" to="playerreal" method="_on_progress_value_changed"]

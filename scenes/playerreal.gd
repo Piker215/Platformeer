@@ -8,12 +8,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
 	velocity = speed * direction
-	if Input.is_action_just_pressed("Ability"):
-		$collreal.disabled = true
-		var motion = get_last_motion()
-		var dash = 1000
-		velocity = dash * motion
-		$collreal.disabled = false
 	move_and_slide()
 	pass
 
@@ -24,3 +18,14 @@ func _physics_process(delta: float) -> void:
 
 #func _on_timer_timeout() -> void:
 #	pass
+
+
+func _on_progress_value_changed(value: float) -> void:
+	if value > 99:
+		if Input.is_action_just_pressed("Ability"):
+			$collreal.disabled = true
+			var motion = get_last_motion()
+			var dash = 1000
+			velocity = dash * motion
+			$collreal.disabled = false
+	pass # Replace with function body.
