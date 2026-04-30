@@ -1,2 +1,2 @@
 extends Node
-var moneys
+var moneys = 0

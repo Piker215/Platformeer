@@ -48,10 +48,10 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 		times = 0
 		var duplicator = duplicate()
 		duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
-		get_parent().add_child(duplicator)
 		while 4 > times:
-			$colkick.disabled = true
+			get_parent().add_child(duplicator)
 			$spritebrick.modulate = Color.ANTIQUE_WHITE
+			$colkick.disabled = true
 			await get_tree().create_timer(0.1).timeout
 		$spritebrick.modulate = Color.ORANGE_RED
 		$colkick.disabled = false

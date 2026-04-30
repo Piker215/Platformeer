@@ -2,18 +2,17 @@
 
 [ext_resource type="Script" uid="uid://cgus72c7kmsol" path="res://scenes/playerreal.gd" id="1_w5avn"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_2rurl"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5avn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w5avn"]
 
 [node name="playerreal" type="CharacterBody2D" unique_id=125704177 groups=["movings"]]
 script = ExtResource("1_w5avn")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=633287436]
-scale = Vector2(20, 20)
-texture = SubResource("CanvasTexture_2rurl")
-
 [node name="collreal" type="CollisionShape2D" parent="." unique_id=438938481]
 shape = SubResource("RectangleShape2D_w5avn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=424868319]
+sprite_frames = SubResource("SpriteFrames_w5avn")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
