@@ -1,13 +1,23 @@
 extends CharacterBody2D
 var speed := 300
+@onready var animator = $playersprite
 func _ready() -> void:
 	add_to_group("movings")
+	animator.play("default")
 	pass 
 
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
 	velocity = speed * direction
+	if velocity.x < 0:
+		animator.play("left")
+	elif velocity.x > 0:
+		animator.play("right")
+	elif velocity.y > 0:
+		animator.play("down")
+	elif velocity.y < 0:
+		animator.play("up")
 	move_and_slide()
 	pass
 

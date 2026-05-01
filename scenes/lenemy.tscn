@@ -2,22 +2,58 @@
 
 [ext_resource type="Script" uid="uid://dlonkr4l8w1o1" path="res://scenes/lenemy.gd" id="1_66257"]
 [ext_resource type="Script" uid="uid://baswjqplt3q1g" path="res://scenes/lenemee.gd" id="2_spysg"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_lj8jo"]
+[ext_resource type="Texture2D" uid="uid://cp7ffbj8bpw6g" path="res://assets/lenemy.png" id="3_iad2r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nckey"]
+size = Vector2(12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n5l8"]
+atlas = ExtResource("3_iad2r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jata"]
+atlas = ExtResource("3_iad2r")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_spysg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n5l8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jata")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_vbg70"]
+resource_name = "new_animation"
+length = 0.5
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bmscy"]
+_data = {
+&"new_animation": SubResource("Animation_vbg70")
+}
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1732548339]
 script = ExtResource("1_66257")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=33668728]
-scale = Vector2(20, 20)
-texture = SubResource("CanvasTexture_lj8jo")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1409341239]
 script = ExtResource("2_spysg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=124006413]
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_nckey")
+
+[node name="lenemysprite" type="AnimatedSprite2D" parent="." unique_id=732653828]
+position = Vector2(2, -2)
+sprite_frames = SubResource("SpriteFrames_spysg")
+frame_progress = 0.9264609
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1920253526]
+libraries/ = SubResource("AnimationLibrary_bmscy")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
