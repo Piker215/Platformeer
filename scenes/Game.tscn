@@ -61,7 +61,7 @@ position = Vector2(-2, 20.000004)
 scale = Vector2(19.999994, 19.999998)
 texture = SubResource("CanvasTexture_78awf")
 
-[node name="killbrick" type="Area2D" parent="." unique_id=314723096 groups=["movings"]]
+[node name="killbrick" type="Area2D" parent="." unique_id=314723096 groups=["killbricks", "movings"]]
 position = Vector2(-103, 17)
 script = ExtResource("5_s0nni")
 
@@ -145,6 +145,7 @@ texture_progress = SubResource("GradientTexture1D_400sg")
 [connection signal="area_entered" from="mushroom" to="mushroom" method="_on_area_entered"]
 [connection signal="body_entered" from="mushroom" to="mushroom" method="_on_body_entered"]
 [connection signal="body_entered" from="killbrick" to="killbrick" method="_on_body_entered"]
+[connection signal="body_entered" from="goldenmushroom" to="." method="_on_goldenmushroom_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="killbrick" method="_on_goldenmushroom_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="goldenmushroom" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="playerreal" method="_on_timer_timeout"]

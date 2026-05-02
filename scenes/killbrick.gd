@@ -4,6 +4,7 @@ extends Area2D
 @onready var goldy := get_node("../goldenmushroom")
 @onready var goldenshroomy := global_position.distance_to(goldy.global_position)
 @onready var groupp := get_tree().get_first_node_in_group("movingse")
+@onready var killbricks := get_tree().get_nodes_in_group("killbricks")
 @onready var distance := global_position.distance_to(groupp.global_position)
 @onready var difficults := get_tree().get_nodes_in_group("difficulty")
 @onready var timer := get_node("../Timer")
@@ -48,6 +49,7 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 		times = 0
 		$spritebrick.modulate = Color.ANTIQUE_WHITE
 		var duplicator = duplicate()
+		duplicator.add_to_group("killbricks")
 		$colkick.disabled = true
 		duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		get_parent().add_child(duplicator)

@@ -34,16 +34,17 @@ func _physics_process(delta: float) -> void:
 
 func _on_progress_value_changed(value: float) -> void:
 	print("work")
-	if Input.is_action_just_pressed("Ability"):
-		if ability.abilities == "dash":
-			$collreal.disabled = true
-			var motion = get_last_motion()
-			var dash = 1000
-			await get_tree().create_timer(0.3).timeout
-			velocity = dash * motion
-			$collreal.disabled = false
-		elif ability.abilities == "invincibility":
-			$collreal.disabled = true
-			await get_tree().create_timer(5).timeout
-			$collreal.disabled = false
+	if value == 100.0:
+		if Input.is_action_just_pressed("Ability"):
+			if ability.abilities == "dash":
+				$collreal.disabled = true
+				var motion = get_last_motion()
+				var dash = 1000
+				await get_tree().create_timer(0.3).timeout
+				velocity = dash * motion
+				$collreal.disabled = false
+			elif ability.abilities == "invincibility":
+				$collreal.disabled = true
+				await get_tree().create_timer(5).timeout
+				$collreal.disabled = false
 	pass # Replace with function body.
