@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cp7ffbj8bpw6g" path="res://assets/lenemy.png" id="3_iad2r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nckey"]
-size = Vector2(12, 13)
+size = Vector2(10, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3n5l8"]
 atlas = ExtResource("3_iad2r")
@@ -45,7 +45,6 @@ script = ExtResource("1_66257")
 script = ExtResource("2_spysg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=124006413]
-position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_nckey")
 
 [node name="lenemysprite" type="AnimatedSprite2D" parent="." unique_id=732653828]

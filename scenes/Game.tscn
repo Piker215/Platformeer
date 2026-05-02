@@ -41,15 +41,13 @@ gradient = SubResource("Gradient_kiw3p")
 [node name="game" type="Node2D" unique_id=1713997475]
 script = ExtResource("1_cpr0p")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1055616801]
-
 [node name="playerreal" parent="." unique_id=948001584 groups=["movingse", "movingy"] instance=ExtResource("1_ibkli")]
 
 [node name="lenemy" parent="." unique_id=1732548339 instance=ExtResource("3_78awf")]
 position = Vector2(506, 1)
 
 [node name="mushroom" type="Area2D" parent="." unique_id=981144700]
-position = Vector2(760, 172)
+position = Vector2(1924, 299)
 script = ExtResource("2_qbsmt")
 
 [node name="collishroom" type="CollisionShape2D" parent="mushroom" unique_id=225235583]
@@ -141,6 +139,8 @@ offset_bottom = -289.31946
 texture_under = SubResource("CanvasTexture_400sg")
 texture_over = SubResource("CanvasTexture_g4kob")
 texture_progress = SubResource("GradientTexture1D_400sg")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1536627754]
 
 [connection signal="area_entered" from="mushroom" to="mushroom" method="_on_area_entered"]
 [connection signal="body_entered" from="mushroom" to="mushroom" method="_on_body_entered"]

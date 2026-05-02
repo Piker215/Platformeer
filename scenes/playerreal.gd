@@ -20,6 +20,8 @@ func _physics_process(delta: float) -> void:
 		animator.play("down")
 	elif velocity.y < 0:
 		animator.play("up")
+	elif velocity.x == 0 && velocity.y == 0:
+		animator.play("default")
 	move_and_slide()
 	pass
 
@@ -33,8 +35,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_progress_value_changed(value: float) -> void:
-	print("work")
-	if value == 100.0:
+	print(value)
+	if value > 99:
 		if Input.is_action_just_pressed("Ability"):
 			if ability.abilities == "dash":
 				$collreal.disabled = true
@@ -47,4 +49,5 @@ func _on_progress_value_changed(value: float) -> void:
 				$collreal.disabled = true
 				await get_tree().create_timer(5).timeout
 				$collreal.disabled = false
-	pass # Replace with function body.
+	else:
+		pass # Replace with function body.
