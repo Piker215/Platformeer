@@ -46,13 +46,12 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 	number = round(number)
 	while(number>adder):
 		times = 0
+		$spritebrick.modulate = Color.ANTIQUE_WHITE
 		var duplicator = duplicate()
+		$colkick.disabled = true
 		duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
-		while 4 > times:
-			get_parent().add_child(duplicator)
-			$spritebrick.modulate = Color.ANTIQUE_WHITE
-			$colkick.disabled = true
-			await get_tree().create_timer(0.1).timeout
+		get_parent().add_child(duplicator)
+		await get_tree().create_timer(0.4).timeout
 		$spritebrick.modulate = Color.ORANGE_RED
 		$colkick.disabled = false
 		adder += 1
