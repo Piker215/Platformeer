@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dlyyt77n1c0d8"]
 
-[ext_resource type="Script" uid="uid://7887jfgtwnjx" path="res://scenes/playerdifficulty.gd" id="1_jmp1n"]
+[ext_resource type="Script" uid="uid://7887jfgtwnjx" path="res://players/playerdifficulty.gd" id="1_jmp1n"]
 [ext_resource type="Script" uid="uid://hos5kpdi0r14" path="res://scenes/invincibility.gd" id="2_codmc"]
 [ext_resource type="Script" uid="uid://cfk05ikebsy3p" path="res://scenes/dash.gd" id="3_dq3y1"]
 

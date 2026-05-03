@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dn6pfc13pyg6k"]
 
-[ext_resource type="Script" uid="uid://dra1f2ocvcdxe" path="res://scenes/game.gd" id="1_cpr0p"]
-[ext_resource type="PackedScene" uid="uid://btxsxmhag5uds" path="res://scenes/playerreal.tscn" id="1_ibkli"]
-[ext_resource type="Script" uid="uid://bmrs86wk4gbfs" path="res://scenes/mushroom.gd" id="2_qbsmt"]
-[ext_resource type="PackedScene" uid="uid://duwhkvnstlcnj" path="res://scenes/lenemy.tscn" id="3_78awf"]
-[ext_resource type="Script" uid="uid://bhgnulp4hexxo" path="res://scenes/killbrick.gd" id="5_s0nni"]
-[ext_resource type="Script" uid="uid://cnc3ly1wwjra5" path="res://scenes/goldenmushroom.gd" id="6_aug50"]
-[ext_resource type="Script" uid="uid://dp2cv13l86vao" path="res://scenes/timer.gd" id="7_g4kob"]
-[ext_resource type="Script" uid="uid://n38smltvyc7" path="res://scenes/progress.gd" id="8_qy1jj"]
+[ext_resource type="Script" uid="uid://dra1f2ocvcdxe" path="res://scenes/game.gd" id="1_gee14"]
+[ext_resource type="PackedScene" uid="uid://btxsxmhag5uds" path="res://players/playerreal.tscn" id="2_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://duwhkvnstlcnj" path="res://scenes/lenemy.tscn" id="3_vtaks"]
+[ext_resource type="Script" uid="uid://bmrs86wk4gbfs" path="res://scenes/mushroom.gd" id="4_kvpfn"]
+[ext_resource type="Script" uid="uid://bhgnulp4hexxo" path="res://scenes/killbrick.gd" id="5_dinhu"]
+[ext_resource type="Script" uid="uid://cnc3ly1wwjra5" path="res://scenes/goldenmushroom.gd" id="6_kvuet"]
+[ext_resource type="Script" uid="uid://dp2cv13l86vao" path="res://scenes/timer.gd" id="7_trtic"]
+[ext_resource type="Script" uid="uid://n38smltvyc7" path="res://scenes/progress.gd" id="8_ir15t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cpr0p"]
 
@@ -39,16 +39,16 @@ size = Vector2(20, 21)
 gradient = SubResource("Gradient_kiw3p")
 
 [node name="game" type="Node2D" unique_id=1713997475]
-script = ExtResource("1_cpr0p")
+script = ExtResource("1_gee14")
 
-[node name="playerreal" parent="." unique_id=948001584 groups=["movingse", "movingy"] instance=ExtResource("1_ibkli")]
+[node name="playerreal" parent="." unique_id=948001584 groups=["movingse", "movingy"] instance=ExtResource("2_0tnpc")]
 
-[node name="lenemy" parent="." unique_id=1732548339 instance=ExtResource("3_78awf")]
+[node name="lenemy" parent="." unique_id=1732548339 instance=ExtResource("3_vtaks")]
 position = Vector2(506, 1)
 
 [node name="mushroom" type="Area2D" parent="." unique_id=981144700]
 position = Vector2(1924, 299)
-script = ExtResource("2_qbsmt")
+script = ExtResource("4_kvpfn")
 
 [node name="collishroom" type="CollisionShape2D" parent="mushroom" unique_id=225235583]
 position = Vector2(-2, 20)
@@ -61,7 +61,7 @@ texture = SubResource("CanvasTexture_78awf")
 
 [node name="killbrick" type="Area2D" parent="." unique_id=314723096 groups=["killbricks", "movings"]]
 position = Vector2(-103, 17)
-script = ExtResource("5_s0nni")
+script = ExtResource("5_dinhu")
 
 [node name="colkick" type="CollisionShape2D" parent="killbrick" unique_id=887900359]
 shape = SubResource("RectangleShape2D_aug50")
@@ -101,7 +101,7 @@ shape = SubResource("RectangleShape2D_qbsmt")
 
 [node name="goldenmushroom" type="Area2D" parent="." unique_id=964769041]
 position = Vector2(228.17285, -101.40979)
-script = ExtResource("6_aug50")
+script = ExtResource("6_kvuet")
 
 [node name="colli" type="CollisionShape2D" parent="goldenmushroom" unique_id=2020461669]
 position = Vector2(-0.17285156, -0.09020996)
@@ -121,14 +121,14 @@ text = "Dash"
 
 [node name="Timer" type="Timer" parent="." unique_id=69826091]
 wait_time = 0.1
-script = ExtResource("7_g4kob")
+script = ExtResource("7_trtic")
 
 [node name="progress" type="ProgressBar" parent="." unique_id=183458601]
 offset_left = -292.0
 offset_top = -320.0
 offset_right = -130.0
 offset_bottom = -293.0
-script = ExtResource("8_qy1jj")
+script = ExtResource("8_ir15t")
 
 [node name="progressgraphic" type="TextureProgressBar" parent="progress" unique_id=1688661906]
 layout_mode = 0

@@ -57,12 +57,11 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 		$colkick.disabled = true
 		duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		get_parent().add_child(duplicator)
-		await get_tree().create_timer(0.4, false, false, true).timeout
+		await get_tree().create_timer(0.4).timeout
 		$spritebrick.modulate = Color.ORANGE_RED
 		$colkick.disabled = false
 		adder += 1
 		print(adder)
-	calls += 1
 	pass # Replace with function body.
 
 

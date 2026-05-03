@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://uqwmblx24y2u"]
 
-[ext_resource type="Script" uid="uid://7887jfgtwnjx" path="res://scenes/playerdifficulty.gd" id="1_y0u75"]
+[ext_resource type="Script" uid="uid://7887jfgtwnjx" path="res://players/playerdifficulty.gd" id="1_y0u75"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_1t8xb"]
 

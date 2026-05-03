@@ -13,11 +13,11 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-func _on_goldenmushroom_body_entered(body: Node2D) -> void:
-	if is_in_group("killbricks"):
-		$colkick.disabled = true
-		$spritebrick.modulate = Color.ANTIQUE_WHITE
-		await get_tree().create_timer(0.4).timeout
-		$colkick.disabled = false
-		$spritebrick.modulate = Color.ORANGE_RED
-	pass # Replace with function body.
+#func _on_goldenmushroom_body_entered(body: Node2D) -> void:
+	#if is_in_group("killbricks"):
+		#$colkick.disabled = true
+		#$spritebrick.modulate = Color.ANTIQUE_WHITE
+		#await get_tree().create_timer(0.4).timeout
+		#$colkick.disabled = false
+		#$spritebrick.modulate = Color.ORANGE_RED
+	#pass # Replace with function body.

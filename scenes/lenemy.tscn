@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://duwhkvnstlcnj"]
 
-[ext_resource type="Script" uid="uid://dlonkr4l8w1o1" path="res://scenes/lenemy.gd" id="1_66257"]
-[ext_resource type="Script" uid="uid://baswjqplt3q1g" path="res://scenes/lenemee.gd" id="2_spysg"]
+[ext_resource type="Script" uid="uid://dlonkr4l8w1o1" path="res://players/lenemy.gd" id="1_66257"]
+[ext_resource type="Script" uid="uid://baswjqplt3q1g" path="res://players/lenemee.gd" id="2_spysg"]
 [ext_resource type="Texture2D" uid="uid://cp7ffbj8bpw6g" path="res://assets/lenemy.png" id="3_iad2r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nckey"]

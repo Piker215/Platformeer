@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://keyi7gtycrd1"]
 
 [ext_resource type="Script" uid="uid://b2xh166uu2olp" path="res://scenes/difficultyscreen.gd" id="1_28v6e"]
-[ext_resource type="Script" uid="uid://cw6cv3n0ef0mg" path="res://easy.gd" id="2_28v6e"]
-[ext_resource type="Script" uid="uid://bfisarraufpjq" path="res://medium.gd" id="3_46j36"]
-[ext_resource type="Script" uid="uid://bc8kc4ty67v8y" path="res://hard.gd" id="4_xoxwo"]
+[ext_resource type="Script" uid="uid://cw6cv3n0ef0mg" path="res://scenes/easy.gd" id="2_28v6e"]
+[ext_resource type="Script" uid="uid://bfisarraufpjq" path="res://scenes/medium.gd" id="3_46j36"]
+[ext_resource type="Script" uid="uid://bc8kc4ty67v8y" path="res://scenes/hard.gd" id="4_xoxwo"]
 [ext_resource type="PackedScene" uid="uid://c1s8l461y5cv5" path="res://scenes/playerdifficulty.tscn" id="5_28v6e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lodve"]
