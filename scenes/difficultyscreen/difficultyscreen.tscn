@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://keyi7gtycrd1"]
 
-[ext_resource type="Script" uid="uid://b2xh166uu2olp" path="res://scenes/difficultyscreen.gd" id="1_28v6e"]
-[ext_resource type="Script" uid="uid://cw6cv3n0ef0mg" path="res://scenes/easy.gd" id="2_28v6e"]
-[ext_resource type="Script" uid="uid://bfisarraufpjq" path="res://scenes/medium.gd" id="3_46j36"]
-[ext_resource type="Script" uid="uid://bc8kc4ty67v8y" path="res://scenes/hard.gd" id="4_xoxwo"]
-[ext_resource type="PackedScene" uid="uid://c1s8l461y5cv5" path="res://scenes/playerdifficulty.tscn" id="5_28v6e"]
+[ext_resource type="Script" uid="uid://b2xh166uu2olp" path="res://scenes/difficultyscreen/difficultyscreen.gd" id="1_532yp"]
+[ext_resource type="PackedScene" uid="uid://c1s8l461y5cv5" path="res://scenes/difficultyscreen/playerdifficulty.tscn" id="2_ikabx"]
+[ext_resource type="Script" uid="uid://cw6cv3n0ef0mg" path="res://scenes/difficultyscreen/easy.gd" id="3_v7fuq"]
+[ext_resource type="Script" uid="uid://bfisarraufpjq" path="res://scenes/difficultyscreen/medium.gd" id="4_drkpv"]
+[ext_resource type="Script" uid="uid://bc8kc4ty67v8y" path="res://scenes/difficultyscreen/hard.gd" id="5_8ditd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lodve"]
 size = Vector2(55, 36)
@@ -18,9 +18,9 @@ size = Vector2(53, 31)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_28v6e"]
 
 [node name="Node2D" type="Node2D" unique_id=1561517176]
-script = ExtResource("1_28v6e")
+script = ExtResource("1_532yp")
 
-[node name="playerdifficulty" parent="." unique_id=233652545 instance=ExtResource("5_28v6e")]
+[node name="playerdifficulty" parent="." unique_id=233652545 instance=ExtResource("2_ikabx")]
 position = Vector2(6, 0)
 
 [node name="TextEdit" type="TextEdit" parent="." unique_id=458242384]
@@ -51,7 +51,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="easy" type="Area2D" parent="." unique_id=1898254930 groups=["difficulty"]]
 position = Vector2(-86, -38)
-script = ExtResource("2_28v6e")
+script = ExtResource("3_v7fuq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="easy" unique_id=953680812]
 position = Vector2(10.5, -35)
@@ -59,7 +59,7 @@ shape = SubResource("RectangleShape2D_lodve")
 
 [node name="medium" type="Area2D" parent="." unique_id=493294900 groups=["difficulty"]]
 position = Vector2(-30.688965, -45.946228)
-script = ExtResource("3_46j36")
+script = ExtResource("4_drkpv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="medium" unique_id=460203667]
 position = Vector2(38.188965, -27.053772)
@@ -67,7 +67,7 @@ shape = SubResource("RectangleShape2D_qugoy")
 
 [node name="hard" type="Area2D" parent="." unique_id=489866578 groups=["difficulty"]]
 position = Vector2(58.451904, -40.984253)
-script = ExtResource("4_xoxwo")
+script = ExtResource("5_8ditd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hard" unique_id=93702448]
 position = Vector2(33.048096, -31.515747)

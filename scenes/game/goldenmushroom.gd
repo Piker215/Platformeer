@@ -1,7 +1,7 @@
 extends Area2D
 @onready var player := get_node("../playerreal")
-@onready var killbrick := get_node("../killbrick")
-@onready var distance := global_position.distance_to(killbrick.global_position)
+@onready var killbrick := get_tree().get_nodes_in_group("killbricks")
+@onready var game := get_node("../game")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,11 +1,13 @@
 extends Node2D
 @onready var movingset = get_tree().get_nodes_in_group("movings")
 @onready var killbricks := get_tree().get_nodes_in_group("killbricks")
+@onready var camera = get_tree().get_first_node_in_group("camera")
 #var duplicator := $mushroom.duplicate()
 #var wait := await get_tree().await_timer(1.5).timeout
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	camera.make_current()
 	$Timer.start()
 	
 	#for n in 4:

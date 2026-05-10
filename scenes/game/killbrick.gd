@@ -1,13 +1,12 @@
 extends Area2D
 var calls:int = 0
 @onready var times = 0
-@onready var duplicator = duplicate()
 @onready var grouppp := get_tree().get_nodes_in_group("difficulty")
 @onready var goldy := get_node("../goldenmushroom")
 @onready var goldenshroomy := global_position.distance_to(goldy.global_position)
 @onready var groupp := get_tree().get_first_node_in_group("movingse")
 @onready var killbricks := get_tree().get_nodes_in_group("killbricks")
-@onready var distance := global_position.distance_to(groupp.global_position)
+@onready var distance := global_position.distance_to(killbricks.any(distance_to))
 @onready var difficults := get_tree().get_nodes_in_group("difficulty")
 @onready var timer := get_node("../Timer")
 
@@ -35,14 +34,15 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 		print("You died!")
 		
 		
-		get_tree().change_scene_to_file("res://scenes/Title.tscn")
+		get_tree().change_scene_to_file("res://scenes/title/title.tscn")
 	else:
 		return
 	pass 
-
+func distance_to() -> void:
+	distance < 100
+	goldenshroomy < 50
 
 func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
-	times = 0
 	#if calls >= 1:
 	#	print("eh")
 	#	queue_free()
@@ -51,13 +51,15 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 	difficulter = difficulter + 1
 	number = difficulter * scaler
 	number = round(number)
+	var duplicator = duplicate()
 	while(number>adder):
 		$spritebrick.modulate = Color.ANTIQUE_WHITE
-		duplicator.add_to_group("killbricks")
-		$colkick.disabled = true
-		duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+		$colkick.disabled = false
 		get_parent().add_child(duplicator)
-		await get_tree().create_timer(0.4).timeout
+		duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+		while distance < 100:
+			position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+			print("ayay")
 		$spritebrick.modulate = Color.ORANGE_RED
 		$colkick.disabled = false
 		adder += 1

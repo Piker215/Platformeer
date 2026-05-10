@@ -5,7 +5,7 @@ extends Area2D
 func _on_body_entered(body: Node) -> void:
 	if body == player:
 		print("Teleporting to game")
-		get_tree().change_scene_to_file("res://scenes/difficultyscreen.tscn")
+		get_tree().change_scene_to_file("res://scenes/difficultyscreen/difficultyscreen.tscn")
 	else:
 		return
 	pass 
