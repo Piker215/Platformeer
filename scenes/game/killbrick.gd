@@ -7,7 +7,7 @@ var calls:int = 0
 @onready var groupp := get_tree().get_first_node_in_group("movingse")
 @onready var killbricks := get_tree().get_nodes_in_group("killbricks")
 @onready var n := get_tree().get_node_count_in_group("killbricks")
-@onready var distance := global_position.distance_to($killbrick.position)
+#@onready var distance := global_position.distance_to(killbricks.position)
 @onready var difficults := get_tree().get_nodes_in_group("difficulty")
 @onready var timer := get_node("../Timer")
 
@@ -18,13 +18,13 @@ var adder = 1
 func _ready() -> void:
 	$spritebrick.modulate = Color.ORANGE_RED
 	randomize()
-	while(1>0):
-		position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
-		if goldenshroomy < 150 || distance < 30:
-			position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
-			return
-		else:
-			break
+	#while(1>0):
+		#position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+		#if goldenshroomy < 150 || distance[0] < 30:
+			#position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+			#return
+		#else:
+			#break
 	pass 
 
 
@@ -39,16 +39,16 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 	else:
 		return
 	pass 
-func distances_to():
-	return distance < 100
-	return goldenshroomy < 50
+#func distances_to():
+	#return distance < 100
+	#return goldenshroomy < 50
 
 func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 	#if calls >= 1:
 	#	print("eh")
 	#	queue_free()
-	for n in get_tree().get_node_count_in_group("killbricks"):
-		distance = global_position.distance_to(killbricks[n - 1].position)
+	#for n in get_tree().get_node_count_in_group("killbricks"):
+		#distance = global_position.distance_to(killbricks[n - 1].position)
 	print(scaler)
 	adder = 0
 	difficulter = difficulter + 1
@@ -60,9 +60,9 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 		$colkick.disabled = false
 		get_parent().add_child(duplicator)
 		duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
-		while distance < 100:
-			position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
-			print("ayay")
+		#while distance < 100:
+			#position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+			#print("ayay")
 		$spritebrick.modulate = Color.ORANGE_RED
 		$colkick.disabled = false
 		adder += 1
