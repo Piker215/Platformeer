@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cgus72c7kmsol" path="res://players/playerreal.gd" id="1_w5avn"]
 [ext_resource type="Texture2D" uid="uid://i5sr7pho6bpm" path="res://assets/playerreal (1).png" id="2_p4j0j"]
 [ext_resource type="Script" uid="uid://ccrkvowa2kmiw" path="res://players/playersprite.gd" id="3_tt8er"]
+[ext_resource type="Script" uid="uid://dgem0bexovur7" path="res://players/pointer.gd" id="4_t0ho4"]
+[ext_resource type="Script" uid="uid://ckkxo5iq7hmdo" path="res://players/paths.gd" id="5_ps5di"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5avn"]
 size = Vector2(14, 21)
@@ -209,6 +211,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Curve2D" id="Curve2D_o0pov"]
+
 [node name="playerreal" type="CharacterBody2D" unique_id=125704177 groups=["movings"]]
 script = ExtResource("1_w5avn")
 
@@ -224,5 +228,14 @@ script = ExtResource("3_tt8er")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1007181189 groups=["camera"]]
 enabled = false
 zoom = Vector2(2.5, 2.5)
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=574757243]
+target_position = Vector2(0, -27)
+collide_with_bodies = false
+script = ExtResource("4_t0ho4")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1498973302]
+curve = SubResource("Curve2D_o0pov")
+script = ExtResource("5_ps5di")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
