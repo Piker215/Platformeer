@@ -102,7 +102,7 @@ position = Vector2(506, -14)
 position = Vector2(37, 15)
 shape = SubResource("RectangleShape2D_qbsmt")
 
-[node name="goldenmushroom" type="Area2D" parent="." unique_id=964769041]
+[node name="goldenmushroom" type="Area2D" parent="." unique_id=964769041 groups=["goldenmushroom"]]
 position = Vector2(228.17285, -101.40979)
 script = ExtResource("6_vaxfo")
 

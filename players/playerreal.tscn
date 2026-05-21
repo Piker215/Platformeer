@@ -3,8 +3,7 @@
 [ext_resource type="Script" uid="uid://cgus72c7kmsol" path="res://players/playerreal.gd" id="1_w5avn"]
 [ext_resource type="Texture2D" uid="uid://i5sr7pho6bpm" path="res://assets/playerreal (1).png" id="2_p4j0j"]
 [ext_resource type="Script" uid="uid://ccrkvowa2kmiw" path="res://players/playersprite.gd" id="3_tt8er"]
-[ext_resource type="Script" uid="uid://dgem0bexovur7" path="res://players/pointer.gd" id="4_t0ho4"]
-[ext_resource type="Script" uid="uid://ckkxo5iq7hmdo" path="res://players/paths.gd" id="5_ps5di"]
+[ext_resource type="Script" uid="uid://b1qwi54anvlqj" path="res://players/arrow.gd" id="4_t0ho4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5avn"]
 size = Vector2(14, 21)
@@ -211,7 +210,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Curve2D" id="Curve2D_o0pov"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_p4j0j"]
 
 [node name="playerreal" type="CharacterBody2D" unique_id=125704177 groups=["movings"]]
 script = ExtResource("1_w5avn")
@@ -229,13 +228,11 @@ script = ExtResource("3_tt8er")
 enabled = false
 zoom = Vector2(2.5, 2.5)
 
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=574757243]
-target_position = Vector2(0, -27)
-collide_with_bodies = false
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1727463872]
+scale = Vector2(0.5, 1)
+color = Color(0.77238375, 0.1531457, 0.22381365, 1)
+texture = SubResource("CanvasTexture_p4j0j")
+polygon = PackedVector2Array(0, 0, 0, 1, -22, 1, -22, 4, -28, 1, -22, -3, -22, 0)
 script = ExtResource("4_t0ho4")
-
-[node name="Path2D" type="Path2D" parent="." unique_id=1498973302]
-curve = SubResource("Curve2D_o0pov")
-script = ExtResource("5_ps5di")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
