@@ -1,5 +1,6 @@
 extends Area2D
 var calls:int = 0
+@onready var animator := $killbrickanim
 @onready var times = 0
 @onready var grouppp := get_tree().get_nodes_in_group("difficulty")
 @onready var goldy := get_node("../goldenmushroom")
@@ -16,8 +17,10 @@ var scaler = 1
 var number = difficulter * scaler
 var adder = 1
 func _ready() -> void:
-	$spritebrick.modulate = Color.ORANGE_RED
 	randomize()
+	animator.play("default")
+	await get_tree().create_timer(1).timeout
+	animator.play("idle")
 	#while(1>0):
 		#position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		#if goldenshroomy < 150 || distance[0] < 30:
@@ -56,14 +59,12 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 	number = round(number)
 	var duplicator = duplicate()
 	while(number>adder):
-		$spritebrick.modulate = Color.ANTIQUE_WHITE
 		$colkick.disabled = false
 		get_parent().add_child(duplicator)
 		duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		#while distance < 100:
 			#position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 			#print("ayay")
-		$spritebrick.modulate = Color.ORANGE_RED
 		$colkick.disabled = false
 		adder += 1
 		print(adder)
