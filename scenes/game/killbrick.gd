@@ -59,13 +59,11 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 	number = round(number)
 	var duplicator = duplicate()
 	while(number>adder):
-		$colkick.disabled = false
 		get_parent().add_child(duplicator)
 		duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		#while distance < 100:
 			#position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 			#print("ayay")
-		$colkick.disabled = false
 		adder += 1
 		print(adder)
 	pass # Replace with function body.
