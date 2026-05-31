@@ -58,7 +58,7 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 	number = difficulter * scaler
 	number = round(number)
 	var duplicator = duplicate()
-	while(number>adder):
+	for _n in number:
 		get_parent().add_child(duplicator)
 		duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		#while distance < 100:

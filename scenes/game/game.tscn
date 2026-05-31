@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dra1f2ocvcdxe" path="res://scenes/game/game.gd" id="1_87uf6"]
 [ext_resource type="PackedScene" uid="uid://btxsxmhag5uds" path="res://players/playerreal.tscn" id="2_2a8rs"]
 [ext_resource type="PackedScene" uid="uid://duwhkvnstlcnj" path="res://scenes/game/lenemy.tscn" id="3_4j704"]
+[ext_resource type="Script" uid="uid://bvyh55d733sf2" path="res://scenes/game/moneys.gd" id="4_5jirj"]
 [ext_resource type="Script" uid="uid://bmrs86wk4gbfs" path="res://scenes/game/mushroom.gd" id="4_kp23o"]
 [ext_resource type="Script" uid="uid://bhgnulp4hexxo" path="res://scenes/game/killbrick.gd" id="5_5jirj"]
 [ext_resource type="Texture2D" uid="uid://b85bpo1jswfpe" path="res://assets/killbrick.png" id="6_4j704"]
@@ -11,6 +12,17 @@
 [ext_resource type="Script" uid="uid://dp2cv13l86vao" path="res://scenes/game/timer.gd" id="7_ftsea"]
 [ext_resource type="Script" uid="uid://n38smltvyc7" path="res://scenes/game/progress.gd" id="8_otnwt"]
 [ext_resource type="Texture2D" uid="uid://84150gsfu77u" path="res://assets/pixil-frame-0.png" id="11_kp23o"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kp23o"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_400sg"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g4kob"]
+
+[sub_resource type="Gradient" id="Gradient_kiw3p"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_400sg"]
+gradient = SubResource("Gradient_kiw3p")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cpr0p"]
 
@@ -154,15 +166,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_400sg"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_g4kob"]
-
-[sub_resource type="Gradient" id="Gradient_kiw3p"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_400sg"]
-gradient = SubResource("Gradient_kiw3p")
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5jirj"]
 texture = ExtResource("11_kp23o")
 texture_region_size = Vector2i(8, 8)
@@ -267,6 +270,45 @@ script = ExtResource("1_87uf6")
 [node name="camerareal" type="Camera2D" parent="playerreal" unique_id=1198320018 groups=["camera"]]
 zoom = Vector2(2.5, 2.5)
 
+[node name="TextEdit" type="TextEdit" parent="playerreal" unique_id=1951402737]
+material = SubResource("CanvasItemMaterial_kp23o")
+offset_left = -230.0
+offset_top = -128.0
+offset_right = -180.0
+offset_bottom = -96.0
+text = "Dash"
+
+[node name="LineEdit" type="LineEdit" parent="playerreal" unique_id=922134539]
+offset_left = 75.0
+offset_top = -126.0
+offset_right = 143.5
+offset_bottom = -95.0
+text = "Money"
+
+[node name="progress" type="ProgressBar" parent="playerreal" unique_id=183458601]
+offset_left = -177.0
+offset_top = -126.0
+offset_right = -130.0
+offset_bottom = -99.0
+script = ExtResource("8_otnwt")
+
+[node name="progressgraphic" type="TextureProgressBar" parent="playerreal/progress" unique_id=1688661906]
+layout_mode = 0
+offset_left = -294.0
+offset_top = -318.0
+offset_right = -38.0
+offset_bottom = -289.31946
+texture_under = SubResource("CanvasTexture_400sg")
+texture_over = SubResource("CanvasTexture_g4kob")
+texture_progress = SubResource("GradientTexture1D_400sg")
+
+[node name="Label" type="Label" parent="playerreal" unique_id=882698778]
+offset_left = 20.0
+offset_top = -121.0
+offset_right = 60.0
+offset_bottom = -98.0
+script = ExtResource("4_5jirj")
+
 [node name="lenemy" parent="." unique_id=1732548339 instance=ExtResource("3_4j704")]
 position = Vector2(506, 1)
 
@@ -340,37 +382,15 @@ scale = Vector2(0.81249964, 0.9516129)
 sprite_frames = SubResource("SpriteFrames_vaxfo")
 frame_progress = 0.5133538
 
-[node name="TextEdit" type="TextEdit" parent="." unique_id=1951402737]
-offset_left = -499.0
-offset_top = -321.0
-offset_right = -327.0
-offset_bottom = -291.0
-text = "Dash"
-
 [node name="Timer" type="Timer" parent="." unique_id=69826091]
 wait_time = 0.1
 script = ExtResource("7_ftsea")
 
-[node name="progress" type="ProgressBar" parent="." unique_id=183458601]
-offset_left = -292.0
-offset_top = -320.0
-offset_right = -130.0
-offset_bottom = -293.0
-script = ExtResource("8_otnwt")
-
-[node name="progressgraphic" type="TextureProgressBar" parent="progress" unique_id=1688661906]
-layout_mode = 0
-offset_left = -294.0
-offset_top = -318.0
-offset_right = -38.0
-offset_bottom = -289.31946
-texture_under = SubResource("CanvasTexture_400sg")
-texture_over = SubResource("CanvasTexture_g4kob")
-texture_progress = SubResource("GradientTexture1D_400sg")
-
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1884607058]
 tile_set = SubResource("TileSet_vaxfo")
 
+[connection signal="value_changed" from="playerreal/progress" to="playerreal" method="_on_progress_value_changed"]
+[connection signal="value_changed" from="playerreal/progress/progressgraphic" to="playerreal" method="_on_progress_value_changed"]
 [connection signal="area_entered" from="mushroom" to="mushroom" method="_on_area_entered"]
 [connection signal="body_entered" from="mushroom" to="mushroom" method="_on_body_entered"]
 [connection signal="body_entered" from="killbrick" to="killbrick" method="_on_body_entered"]
@@ -378,7 +398,6 @@ tile_set = SubResource("TileSet_vaxfo")
 [connection signal="body_entered" from="goldenmushroom" to="killbrick" method="_on_goldenmushroom_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="goldenmushroom" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="playerreal" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="playerreal/progress" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="playerreal/progress/progressgraphic" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="killbrick" method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer" to="progress" method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer" to="progress/progressgraphic" method="_on_timer_timeout"]
-[connection signal="value_changed" from="progress/progressgraphic" to="playerreal" method="_on_progress_value_changed"]
