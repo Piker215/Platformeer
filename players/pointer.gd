@@ -7,6 +7,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var direction = global_position.angle_to_point(Vector2(goldshroom.global_position))
+	var roty = goldshroom.position
+	var direction = global_position.angle_to_point(goldshroom)
+	var course = rotate_toward(rotation, direction, 400)
 	rotation = rotation + direction
 	pass

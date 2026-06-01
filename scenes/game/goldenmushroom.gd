@@ -18,4 +18,5 @@ func _on_body_entered(body: Node2D) -> void:
 		randomize()
 		position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		money.moneys += 5
+		points.pointse += 1
 	pass 

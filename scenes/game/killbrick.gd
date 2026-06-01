@@ -37,9 +37,11 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 	
 	if body == groupp:
 		print("You died!")
+		if points.pointse > maximum.maximals:
+			maximum.maximals = points.pointse
 		points.pointse = 0
 		
-		get_tree().change_scene_to_file("res://scenes/title/title.tscn")
+		get_tree().change_scene_to_file("res://scenes/highscore/highscore.tscn")
 	else:
 		return
 	pass 

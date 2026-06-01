@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dfw7qe5k0o1fd"]
+
+[ext_resource type="Script" uid="uid://cok7sbnjymahj" path="res://scenes/highscore/highscore.gd" id="1_cfk7c"]
+[ext_resource type="Script" uid="uid://c0un2ydx5kdtg" path="res://scenes/highscore/label.gd" id="1_vlfh2"]
+[ext_resource type="Script" uid="uid://b4wow8087tsfr" path="res://scenes/highscore/highscorelab.gd" id="2_a3pvi"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0jogh"]
+
+[node name="highscore" type="Node2D" unique_id=1483693730]
+script = ExtResource("1_cfk7c")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1450358430]
+position = Vector2(11, 47)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=329000284]
+position = Vector2(-11, -46)
+shape = SubResource("WorldBoundaryShape2D_0jogh")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=344526275]
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=733042805]
+offset_left = -135.0
+offset_top = -268.0
+offset_right = -24.0
+offset_bottom = -229.0
+text = "Score:"
+
+[node name="Label" type="Label" parent="." unique_id=2119492809]
+offset_left = 1.0
+offset_top = -275.0
+offset_right = 60.0
+offset_bottom = -236.0
+script = ExtResource("1_vlfh2")
+
+[node name="TextEdit2" type="TextEdit" parent="." unique_id=1871436414]
+offset_left = -134.0
+offset_top = -176.0
+offset_right = -26.0
+offset_bottom = -138.0
+text = "Highscore:"
+
+[node name="Label2" type="Label" parent="." unique_id=1070173057]
+offset_left = 13.0
+offset_top = -173.0
+offset_right = 75.256195
+offset_bottom = -142.84027
+script = ExtResource("2_a3pvi")
+
+[node name="Label3" type="Label" parent="." unique_id=446695826]
+offset_left = -195.0
+offset_top = -321.0
+offset_right = 203.0
+offset_bottom = -272.0
+text = "Press \"Enter\" to return to game
+Press \"Escape\" to return to menu"
+horizontal_alignment = 1
