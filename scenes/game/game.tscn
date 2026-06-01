@@ -262,6 +262,12 @@ texture_region_size = Vector2i(8, 8)
 tile_size = Vector2i(8, 8)
 sources/0 = SubResource("TileSetAtlasSource_5jirj")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vaxfo"]
+size = Vector2(789.125, 2205)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jirj"]
+size = Vector2(951, 2189)
+
 [node name="game" type="Node2D" unique_id=1713997475 groups=["killbricks"]]
 script = ExtResource("1_87uf6")
 
@@ -389,6 +395,36 @@ script = ExtResource("7_ftsea")
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1884607058]
 tile_set = SubResource("TileSet_vaxfo")
 
+[node name="teleporter4" type="Area2D" parent="." unique_id=2044457938]
+position = Vector2(436.46533, 1342.1853)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleporter4" unique_id=71840300]
+position = Vector2(-442.46533, -623.1853)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_vaxfo")
+
+[node name="teleporter3" type="Area2D" parent="." unique_id=652713142]
+position = Vector2(206, -470.99997)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleporter3" unique_id=704274973]
+position = Vector2(-206, -227.00003)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_vaxfo")
+
+[node name="teleporter2" type="Area2D" parent="." unique_id=1885268150]
+position = Vector2(794.5426, 93.98245)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleporter2" unique_id=1321705948]
+position = Vector2(183.4574, -82.48245)
+shape = SubResource("RectangleShape2D_vaxfo")
+
+[node name="teleporter1" type="Area2D" parent="." unique_id=2032111933]
+position = Vector2(-715.2831, -101.12921)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleporter1" unique_id=795186378]
+position = Vector2(-329.21692, 112.62921)
+shape = SubResource("RectangleShape2D_5jirj")
+
 [connection signal="value_changed" from="playerreal/progress" to="playerreal" method="_on_progress_value_changed"]
 [connection signal="value_changed" from="playerreal/progress/progressgraphic" to="playerreal" method="_on_progress_value_changed"]
 [connection signal="area_entered" from="mushroom" to="mushroom" method="_on_area_entered"]
@@ -401,3 +437,7 @@ tile_set = SubResource("TileSet_vaxfo")
 [connection signal="timeout" from="Timer" to="playerreal/progress" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="playerreal/progress/progressgraphic" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="killbrick" method="_on_timer_timeout"]
+[connection signal="area_entered" from="teleporter4" to="playerreal" method="_on_teleporter_4_area_entered"]
+[connection signal="area_entered" from="teleporter3" to="playerreal" method="_on_teleporter_3_area_entered"]
+[connection signal="area_entered" from="teleporter2" to="playerreal" method="_on_teleporter_2_area_entered"]
+[connection signal="area_entered" from="teleporter1" to="playerreal" method="_on_teleporter_1_area_entered"]

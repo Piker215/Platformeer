@@ -1,5 +1,5 @@
 extends RayCast2D
-@onready var goldshroom := get_node("../goldenmushroom")
+@onready var goldshroom := get_tree().get_first_node_in_group("goldenmushroom")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -7,6 +7,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var direction := goldshroom.global_position.direction_to(goldshroom.global_position)
-	position = direction
+	var direction = global_position.angle_to_point(Vector2(goldshroom.global_position))
+	rotation = rotation + direction
 	pass

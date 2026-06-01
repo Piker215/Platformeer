@@ -2,6 +2,7 @@ extends CharacterBody2D
 var speed := 300
 @onready var animator = $playersprite
 @onready var proggresor = get_node("../progress")
+@onready var killbricks = get_node("../killbrick/colkick")
 @onready var dashy = false
 func _ready() -> void:
 	add_to_group("movings")
@@ -57,3 +58,23 @@ func _on_progress_value_changed(value: float) -> void:
 		print("false")
 	else: 
 		pass
+
+
+func _on_teleporter_1_area_entered(area: Area2D) -> void:
+	position = Vector2(500, 0)
+	pass # Replace with function body.
+
+
+func _on_teleporter_2_area_entered(area: Area2D) -> void:
+	position = Vector2(-500, 0)
+	pass # Replace with function body.
+
+
+func _on_teleporter_3_area_entered(area: Area2D) -> void:
+	position = Vector2(0, -300)
+	pass # Replace with function body.
+
+
+func _on_teleporter_4_area_entered(area: Area2D) -> void:
+	position = Vector2(0, 300)
+	pass # Replace with function body.
