@@ -1,5 +1,4 @@
 extends Area2D
-var calls:int = 0
 @onready var animator := $killbrickanim
 @onready var times = 0
 @onready var grouppp := get_tree().get_nodes_in_group("difficulty")
@@ -17,9 +16,11 @@ var scaler = 1
 var number = difficulter * scaler
 var adder = 1
 func _ready() -> void:
+	$colkick.disabled = true
 	randomize()
 	animator.play("default")
 	await get_tree().create_timer(1).timeout
+	$colkick.disabled = false
 	animator.play("idle")
 	#while(1>0):
 		#position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
@@ -36,7 +37,7 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 	
 	if body == groupp:
 		print("You died!")
-		
+		points.pointse = 0
 		
 		get_tree().change_scene_to_file("res://scenes/title/title.tscn")
 	else:

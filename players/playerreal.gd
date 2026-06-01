@@ -26,11 +26,9 @@ func _physics_process(delta: float) -> void:
 		if ability.abilities == "dash":
 			$progress.value = 0
 			$collreal.disabled = true
-			var motion = get_last_motion()
-			var truemotion = -motion
-			var dash = 1000
-			velocity = dash * truemotion
+			speed = 1000
 			await get_tree().create_timer(0.3).timeout
+			speed = 300
 			$collreal.disabled = false
 		elif ability.abilities == "invincibility":
 			$collreal.disabled = true

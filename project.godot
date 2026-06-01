@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 difficulty="*uid://bgr37dcybldeg"
 ability="*uid://pntgl2gn1lq1"
 money="*uid://cp8ubqpu0fcmd"
+points="*uid://5fsd154doibx"
 
 [editor_plugins]
 
