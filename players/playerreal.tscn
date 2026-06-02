@@ -210,8 +210,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_p4j0j"]
-
 [node name="playerreal" type="CharacterBody2D" unique_id=125704177 groups=["movings"]]
 script = ExtResource("1_w5avn")
 
@@ -228,12 +226,9 @@ script = ExtResource("3_tt8er")
 enabled = false
 zoom = Vector2(2.5, 2.5)
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1727463872]
-scale = Vector2(0.5, 1)
-color = Color(0.77238375, 0.1531457, 0.22381365, 1)
-texture = SubResource("CanvasTexture_p4j0j")
-polygon = PackedVector2Array(0, 0, 0, 1, -22, 1, -22, 4, -28, 1, -22, -3, -22, 0)
-uv = PackedVector2Array(0, 0, 0, 1, -22, 1, -22, 4, -28, 1, -22, -3, -22, 0)
+[node name="arrow" type="Polygon2D" parent="." unique_id=2111338394]
+color = Color(0.7689618, 0.08161285, 0.17504567, 1)
+polygon = PackedVector2Array(0, 0, 18, 0, 18, -3, 22, 0, 18, 4, 18, 1, 0, 1)
 script = ExtResource("4_t0ho4")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

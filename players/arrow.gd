@@ -8,7 +8,5 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var mushyposition := global_position.angle_to(mushy.global_position)
-	var rotated := rotation
-	var rotate = rotate_toward(rotated, mushyposition, speed)
+	look_at(mushy.position)
 	pass

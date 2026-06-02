@@ -1,6 +1,7 @@
 extends CharacterBody2D
 var speed := 300
 @onready var animator = $playersprite
+@onready var proggress = get_tree().get_first_node_in_group("progress")
 @onready var proggresor = get_node("../progress")
 @onready var killbricks = get_node("../killbrick/colkick")
 @onready var dashy = false
@@ -25,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		animator.play("default")
 	if dashy == true && Input.is_action_just_pressed("Ability"):
 		if ability.abilities == "dash":
-			$progress.value = 0
+			proggress.value = 0
 			$collreal.disabled = true
 			speed = 1000
 			await get_tree().create_timer(0.3).timeout
