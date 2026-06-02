@@ -52,10 +52,8 @@ func _on_progress_value_changed(value: float) -> void:
 	print(value)
 	if value > 99:
 		dashy = true
-		print("true")
 	elif value < 99:
 		dashy = false
-		print("false")
 	else: 
 		pass
 
@@ -71,10 +69,17 @@ func _on_teleporter_2_area_entered(area: Area2D) -> void:
 
 
 func _on_teleporter_3_area_entered(area: Area2D) -> void:
-	position = Vector2(0, -300)
+	position = Vector2(0, -200)
 	pass # Replace with function body.
 
 
 func _on_teleporter_4_area_entered(area: Area2D) -> void:
-	position = Vector2(0, 300)
+	position = Vector2(0, 200)
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	speed = 0
+	await get_tree().create_timer(0.2).timeout
+	speed = 300
 	pass # Replace with function body.

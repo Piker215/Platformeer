@@ -9,7 +9,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Start"):
+		points.pointse = 0
 		get_tree().change_scene_to_file("res://scenes/game/game.tscn")
 	elif Input.is_action_just_pressed("Escape"):
+		points.pointse = 0
 		get_tree().change_scene_to_file("res://scenes/title/title.tscn")
 	pass
