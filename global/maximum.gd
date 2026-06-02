@@ -1,6 +1,5 @@
 extends Node
-
+var maximals = 0
 
 func _ready() -> void:
-	var maximals = 0
 	pass 
