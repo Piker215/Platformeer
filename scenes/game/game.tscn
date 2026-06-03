@@ -622,7 +622,7 @@ gradient = SubResource("Gradient_kiw3p")
 [sub_resource type="CanvasTexture" id="CanvasTexture_78awf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aug50"]
-size = Vector2(21, 13)
+size = Vector2(18, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vaxfo"]
 atlas = ExtResource("6_4j704")
@@ -867,7 +867,7 @@ position = Vector2(-103, 17)
 script = ExtResource("5_5jirj")
 
 [node name="colkick" type="CollisionShape2D" parent="killbrick" unique_id=887900359]
-position = Vector2(-0.5, 2.5)
+position = Vector2(-1, 3.5)
 shape = SubResource("RectangleShape2D_aug50")
 disabled = true
 script = ExtResource("10_ftsea")
@@ -877,6 +877,7 @@ position = Vector2(2, -2)
 scale = Vector2(1, 0.90625)
 sprite_frames = SubResource("SpriteFrames_1iff4")
 animation = &"idle"
+frame_progress = 0.30317807
 script = ExtResource("12_otnwt")
 
 [node name="collider2" type="StaticBody2D" parent="." unique_id=471205297]

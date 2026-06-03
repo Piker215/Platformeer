@@ -40,9 +40,9 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 		print("You died!")
 		if points.pointse >= maximum.maximals:
 			maximum.maximals = points.pointse
-			get_tree().change_scene_to_file("res://scenes/highscore/highscore.tscn")
+			get_tree().change_scene_to_file("scenes/highscore/highscore.tscn")
 		else:
-			get_tree().change_scene_to_file("res://scenes/highscore/highscore.tscn")
+			get_tree().change_scene_to_file("scenes/highscore/highscore.tscn")
 	pass 
 #func distances_to():
 	#return distance < 100

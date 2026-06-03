@@ -2,7 +2,6 @@ extends Node2D
 @onready var movingset = get_tree().get_nodes_in_group("movings")
 @onready var killbricks := get_tree().get_nodes_in_group("killbricks")
 @onready var camera = get_tree().get_first_node_in_group("camera")
-@onready var collisioner = $colkick
 #var duplicator := $mushroom.duplicate()
 #var wait := await get_tree().await_timer(1.5).timeout
 

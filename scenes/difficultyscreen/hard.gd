@@ -3,5 +3,5 @@ extends Area2D
 func _on_body_entered(body: Node2D) -> void:
 	if body == player:
 		difficulty.difficultyer = 6
-		get_tree().change_scene_to_file("res://scenes/game/Game.tscn")
+		get_tree().change_scene_to_file("scenes/game/Game.tscn")
 	pass # Replace with function body.
