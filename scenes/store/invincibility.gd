@@ -8,4 +8,4 @@ func _on_body_entered(body: Node2D) -> void:
 		print("Not enough money!")
 	else:
 		ability.abilities = "invincibility"
-	pass # Replace with function body.
+	pass 

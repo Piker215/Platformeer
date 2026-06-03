@@ -9,7 +9,10 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 	print(tre[0])
 	if body == tre[0]:
 		print("You died!")
-		get_tree().change_scene_to_file("res://scenes/highscore/highscore.tscn")
-	else:
+		if points.pointse >= maximum.maximals:
+			maximum.maximals = points.pointse
+			get_tree().change_scene_to_file("res://scenes/highscore/highscore.tscn")
+		else:
+			get_tree().change_scene_to_file("res://scenes/highscore/highscore.tscn")
 		return
 	

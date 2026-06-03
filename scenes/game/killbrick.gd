@@ -10,17 +10,18 @@ extends Area2D
 #@onready var distance := global_position.distance_to(killbricks.position)
 @onready var difficults := get_tree().get_nodes_in_group("difficulty")
 @onready var timer := get_node("../Timer")
+@onready var col := get_tree().get_nodes_in_group("killbricks")
 
 var difficulter = difficulty.difficultyer
 var scaler = 1
 var number = difficulter * scaler
 var adder = 1
 func _ready() -> void:
-	$colkick.disabled = true
+#	collisioner.disabled = true
 	randomize()
 	animator.play("default")
 	await get_tree().create_timer(1).timeout
-	$colkick.disabled = false
+#	collisioner.disabled = false
 	animator.play("idle")
 	#while(1>0):
 		#position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
@@ -37,9 +38,11 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 	
 	if body == groupp:
 		print("You died!")
-		if points.pointse > maximum.maximals:
+		if points.pointse >= maximum.maximals:
 			maximum.maximals = points.pointse
-		get_tree().change_scene_to_file("res://scenes/highscore/highscore.tscn")
+			get_tree().change_scene_to_file("res://scenes/highscore/highscore.tscn")
+		else:
+			get_tree().change_scene_to_file("res://scenes/highscore/highscore.tscn")
 	pass 
 #func distances_to():
 	#return distance < 100
@@ -52,12 +55,11 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 	#for n in get_tree().get_node_count_in_group("killbricks"):
 		#distance = global_position.distance_to(killbricks[n - 1].position)
 	print(scaler)
-	adder = 0
-	difficulter = difficulter + 1
 	number = difficulter * scaler
 	number = round(number)
-	var duplicator = duplicate()
-	for _n in number:
+#	collisioner = duplicator.get_child(0)
+	for n in difficulter:
+		var duplicator = duplicate()
 		get_parent().add_child(duplicator)
 		duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		#while distance < 100:
@@ -65,9 +67,9 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 			#print("ayay")
 		adder += 1
 		print(adder)
-	pass # Replace with function body.
+	pass 
 
 
 func _on_timer_timeout() -> void:
 	times += 1
-	pass # Replace with function body.
+	pass 
