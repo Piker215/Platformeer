@@ -19,10 +19,10 @@ var adder = 1
 func _ready() -> void:
 #	collisioner.disabled = true
 	randomize()
-	animator.play("default")
-	await get_tree().create_timer(1).timeout
-#	collisioner.disabled = false
-	animator.play("idle")
+	#animator.play("default")
+	#await get_tree().create_timer(1).timeout
+##	collisioner.disabled = false
+	#animator.play("idle")
 	#while(1>0):
 		#position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		#if goldenshroomy < 150 || distance[0] < 30:

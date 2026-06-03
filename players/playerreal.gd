@@ -14,16 +14,26 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
 	velocity = speed * direction
-	if velocity.x < 0:
-		animator.play("left")
-	elif velocity.x > 0:
-		animator.play("right")
-	elif velocity.y > 0:
-		animator.play("down")
-	elif velocity.y < 0:
-		animator.play("up")
-	elif velocity.x == 0 && velocity.y == 0:
-		animator.play("default")
+	if speed == 1000:
+		if velocity.x < 0:
+			animator.play("rocket left")
+		elif velocity.x > 0:
+			animator.play("rocket right")
+		elif velocity.y > 0:
+			animator.play("rocket down")
+		elif velocity.y < 0:
+			animator.play("rocket up")
+		elif velocity.x == 0 && velocity.y == 0:
+			animator.play("default")
+	elif speed != 1000:
+			if velocity.x < 0:
+				animator.play("left")
+			elif velocity.x > 0:
+				animator.play("right")
+			elif velocity.y > 0:
+				animator.play("down")
+			elif velocity.y < 0:
+				animator.play("up")
 	if dashy == true && Input.is_action_just_pressed("Ability"):
 		if ability.abilities == "dash":
 			proggress.value = 0
@@ -80,7 +90,10 @@ func _on_teleporter_4_area_entered(area: Area2D) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	speed = 0
-	await get_tree().create_timer(0.2).timeout
+	speed = 70
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
 	speed = 300
 	pass # Replace with function body.

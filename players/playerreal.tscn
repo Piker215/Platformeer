@@ -219,7 +219,7 @@ shape = SubResource("RectangleShape2D_w5avn")
 
 [node name="playersprite" type="AnimatedSprite2D" parent="." unique_id=424868319]
 sprite_frames = SubResource("SpriteFrames_w5avn")
-animation = &"up"
+animation = &"rocket down"
 script = ExtResource("3_tt8er")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1007181189 groups=["camera"]]

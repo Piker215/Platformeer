@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://b70tunkhp6kyu" path="res://scenes/game/colkick.gd" id="10_ftsea"]
 [ext_resource type="FontFile" uid="uid://co0jg3tem4vgs" path="res://assets/Pixel Digivolve.otf" id="11_vaxfo"]
 [ext_resource type="Texture2D" uid="uid://b63jetytdci5m" path="res://assets/tilemap.png" id="12_5jirj"]
+[ext_resource type="Script" uid="uid://cr4d0mllgkpjk" path="res://scenes/game/killbrickanim.gd" id="12_otnwt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5jirj"]
 texture = ExtResource("12_5jirj")
@@ -773,6 +774,9 @@ radius = 11.0
 specular_texture = SubResource("PlaceholderTexture2D_5jirj")
 specular_color = Color(0.56805485, 0.056203425, 9.62615e-08, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftsea"]
+size = Vector2(14, 15)
+
 [node name="game" type="Node2D" unique_id=1713997475 groups=["killbricks"]]
 script = ExtResource("1_87uf6")
 
@@ -789,30 +793,14 @@ zoom = Vector2(2.5, 2.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="playerreal" unique_id=607307151]
 
-[node name="moneytext" type="Label" parent="playerreal/CanvasLayer" unique_id=2086046098]
-offset_left = -224.0
-offset_top = -123.0
-offset_right = -169.0
-offset_bottom = -100.0
-text = "Money"
-label_settings = SubResource("LabelSettings_ftsea")
-
-[node name="Label" type="Label" parent="playerreal/CanvasLayer" unique_id=882698778]
-offset_left = -221.0
-offset_top = -12.0
-offset_right = -220.0
-offset_bottom = 11.0
-label_settings = SubResource("LabelSettings_otnwt")
-script = ExtResource("4_5jirj")
-
 [node name="MarginContainer" type="MarginContainer" parent="playerreal/CanvasLayer" unique_id=1108943648]
 layout_direction = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -130.0
+offset_top = -50.0
 offset_right = -952.0
-offset_bottom = -751.0
+offset_bottom = -644.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -820,19 +808,35 @@ grow_vertical = 2
 layout_direction = 2
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="playerreal/CanvasLayer/MarginContainer" unique_id=1045860437]
+[node name="VBoxContainer" type="VBoxContainer" parent="playerreal/CanvasLayer/MarginContainer" unique_id=1895469520]
 layout_mode = 2
 
-[node name="dashtext" type="Label" parent="playerreal/CanvasLayer/MarginContainer/HBoxContainer" unique_id=638274910]
+[node name="HBoxContainer2" type="HBoxContainer" parent="playerreal/CanvasLayer/MarginContainer/VBoxContainer" unique_id=155044702]
+layout_mode = 2
+
+[node name="moneytext" type="Label" parent="playerreal/CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2086046098]
+layout_mode = 2
+text = "Money"
+label_settings = SubResource("LabelSettings_ftsea")
+
+[node name="Label" type="Label" parent="playerreal/CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=882698778]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_otnwt")
+script = ExtResource("4_5jirj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="playerreal/CanvasLayer/MarginContainer/VBoxContainer" unique_id=1045860437]
+layout_mode = 2
+
+[node name="dashtext" type="Label" parent="playerreal/CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=638274910]
 layout_mode = 2
 text = "Dash"
 label_settings = SubResource("LabelSettings_3xj4h")
 
-[node name="progress" type="ProgressBar" parent="playerreal/CanvasLayer/MarginContainer/HBoxContainer" unique_id=183458601 groups=["progress"]]
+[node name="progress" type="ProgressBar" parent="playerreal/CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=183458601 groups=["progress"]]
 layout_mode = 2
 script = ExtResource("8_otnwt")
 
-[node name="progressgraphic" type="TextureProgressBar" parent="playerreal/CanvasLayer/MarginContainer/HBoxContainer/progress" unique_id=1688661906]
+[node name="progressgraphic" type="TextureProgressBar" parent="playerreal/CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/progress" unique_id=1688661906]
 layout_mode = 0
 offset_left = -294.0
 offset_top = -318.0
@@ -865,6 +869,7 @@ script = ExtResource("5_5jirj")
 [node name="colkick" type="CollisionShape2D" parent="killbrick" unique_id=887900359]
 position = Vector2(-0.5, 2.5)
 shape = SubResource("RectangleShape2D_aug50")
+disabled = true
 script = ExtResource("10_ftsea")
 
 [node name="killbrickanim" type="AnimatedSprite2D" parent="killbrick" unique_id=1169725901]
@@ -872,7 +877,7 @@ position = Vector2(2, -2)
 scale = Vector2(1, 0.90625)
 sprite_frames = SubResource("SpriteFrames_1iff4")
 animation = &"idle"
-frame_progress = 0.49082655
+script = ExtResource("12_otnwt")
 
 [node name="collider2" type="StaticBody2D" parent="." unique_id=471205297]
 position = Vector2(-581, 2)
@@ -978,8 +983,15 @@ position = Vector2(535.50006, 16.5)
 scale = Vector2(5.0000186, 549)
 texture = SubResource("CanvasTexture_5jirj")
 
-[connection signal="value_changed" from="playerreal/CanvasLayer/MarginContainer/HBoxContainer/progress" to="playerreal" method="_on_progress_value_changed"]
-[connection signal="value_changed" from="playerreal/CanvasLayer/MarginContainer/HBoxContainer/progress/progressgraphic" to="playerreal" method="_on_progress_value_changed"]
+[node name="tree" type="Area2D" parent="." unique_id=1817835983]
+position = Vector2(394, 90)
+
+[node name="treecol" type="CollisionShape2D" parent="tree" unique_id=2092558790]
+position = Vector2(19, -14.5)
+shape = SubResource("RectangleShape2D_ftsea")
+
+[connection signal="value_changed" from="playerreal/CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/progress" to="playerreal" method="_on_progress_value_changed"]
+[connection signal="value_changed" from="playerreal/CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/progress/progressgraphic" to="playerreal" method="_on_progress_value_changed"]
 [connection signal="area_entered" from="mushroom" to="mushroom" method="_on_area_entered"]
 [connection signal="body_entered" from="mushroom" to="mushroom" method="_on_body_entered"]
 [connection signal="body_entered" from="killbrick" to="killbrick" method="_on_body_entered"]
@@ -987,11 +999,12 @@ texture = SubResource("CanvasTexture_5jirj")
 [connection signal="body_entered" from="goldenmushroom" to="killbrick" method="_on_goldenmushroom_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="goldenmushroom" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="playerreal" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="playerreal/CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/progress" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="playerreal/CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/progress/progressgraphic" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="killbrick" method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer" to="playerreal/CanvasLayer/MarginContainer/HBoxContainer/progress" method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer" to="playerreal/CanvasLayer/MarginContainer/HBoxContainer/progress/progressgraphic" method="_on_timer_timeout"]
 [connection signal="area_entered" from="teleporter4" to="playerreal" method="_on_teleporter_4_area_entered"]
 [connection signal="area_entered" from="teleporter3" to="playerreal" method="_on_teleporter_3_area_entered"]
 [connection signal="area_entered" from="teleporter2" to="playerreal" method="_on_teleporter_2_area_entered"]
 [connection signal="area_entered" from="teleporter1" to="playerreal" method="_on_teleporter_1_area_entered"]
 [connection signal="body_entered" from="Area2D" to="playerreal" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="playerreal" method="_on_area_2d_body_exited"]

@@ -16,8 +16,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if body == player:
 		randomize()
 		position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
-		while killbrick.any(global_position.distance_to(Callable)) < 50:
-			position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+#		while killbrick.any(body_entered):
+#			position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		money.moneys += 5
-		points.pointse += 1
+		points.pointse += 1 
 	pass 
