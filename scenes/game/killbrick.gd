@@ -54,9 +54,6 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 	#	queue_free()
 	#for n in get_tree().get_node_count_in_group("killbricks"):
 		#distance = global_position.distance_to(killbricks[n - 1].position)
-	print(scaler)
-	number = difficulter * scaler
-	number = round(number)
 #	collisioner = duplicator.get_child(0)
 	for n in difficulter:
 		var duplicator = duplicate()
@@ -65,8 +62,6 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 		#while distance < 100:
 			#position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 			#print("ayay")
-		adder += 1
-		print(adder)
 	pass 
 
 

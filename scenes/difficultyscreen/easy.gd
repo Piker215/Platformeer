@@ -5,5 +5,5 @@ func _on_body_entered(body: Node2D) -> void:
 	if body == player:
 		difficulty.difficultyer = 1
 		print("Easy")
-		get_tree().change_scene_to_file("scenes/game/Game.tscn")
+		get_tree().change_scene_to_file("scenes/game/game.tscn")
 	pass

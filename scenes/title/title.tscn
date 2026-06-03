@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dfstnbqd54f4k" path="res://scenes/title/title.gd" id="1_7hvf5"]
 [ext_resource type="PackedScene" uid="uid://dgirs4r5fk7w4" path="res://scenes/title/player.tscn" id="2_yjwoi"]
 [ext_resource type="Script" uid="uid://ct2udtquixvp5" path="res://scenes/title/gameteleporter.gd" id="3_g4gru"]
+[ext_resource type="FontFile" uid="uid://co0jg3tem4vgs" path="res://assets/Pixel Digivolve.otf" id="3_yjwoi"]
 [ext_resource type="Script" uid="uid://bp2phor4epatn" path="res://scenes/title/storeteleporter.gd" id="4_7s5iw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6e84v"]
@@ -35,18 +36,12 @@ shape = SubResource("WorldBoundaryShape2D_lq0lj")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1079281767]
 position = Vector2(389, 229)
 
-[node name="TextEdit" type="TextEdit" parent="." unique_id=686344231]
-offset_left = 340.0
-offset_top = 80.0
-offset_right = 445.0
-offset_bottom = 121.0
-text = "The Game"
-
 [node name="Label" type="Label" parent="." unique_id=2147280778]
-offset_left = 348.0
-offset_top = 128.0
-offset_right = 436.0
-offset_bottom = 177.0
+offset_left = 338.0
+offset_top = 127.0
+offset_right = 449.0
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("3_yjwoi")
 text = "Press Enter
 To Start"
 horizontal_alignment = 1
@@ -67,6 +62,14 @@ script = ExtResource("4_7s5iw")
 [node name="teleporter" type="CollisionShape2D" parent="storeteleporter" unique_id=1360677604]
 position = Vector2(62.100037, -13.337982)
 shape = SubResource("RectangleShape2D_aa56r")
+
+[node name="Label2" type="Label" parent="." unique_id=734776033]
+offset_left = 353.0
+offset_top = 86.0
+offset_right = 431.0
+offset_bottom = 109.0
+theme_override_fonts/font = ExtResource("3_yjwoi")
+text = "The Game"
 
 [connection signal="body_entered" from="gameteleporter" to="gameteleporter" method="_on_body_entered"]
 [connection signal="body_entered" from="storeteleporter" to="storeteleporter" method="_on_body_entered"]

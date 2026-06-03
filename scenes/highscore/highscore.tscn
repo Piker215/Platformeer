@@ -18,39 +18,55 @@ shape = SubResource("WorldBoundaryShape2D_0jogh")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=344526275]
 
-[node name="Label4" type="Label" parent="." unique_id=1243434706]
-offset_left = -105.0
-offset_top = -257.0
-offset_right = -57.0
-offset_bottom = -234.0
-text = "Score:"
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=241932438]
 
-[node name="Label" type="Label" parent="." unique_id=2119492809]
-offset_left = 12.0
-offset_top = -261.0
-offset_right = 71.0
-offset_bottom = -228.0
-script = ExtResource("1_vlfh2")
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1917249507]
+offset_right = 575.0
+offset_bottom = 122.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Label2" type="Label" parent="." unique_id=1070173057]
-offset_left = 13.0
-offset_top = -173.0
-offset_right = 75.256195
-offset_bottom = -142.84027
-script = ExtResource("2_a3pvi")
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=222430497]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Label3" type="Label" parent="." unique_id=446695826]
-offset_left = -195.0
-offset_top = -321.0
-offset_right = 203.0
-offset_bottom = -272.0
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1210257800]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=446695826]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
 text = "Press \"Enter\" to return to game
 Press \"Escape\" to return to menu"
 horizontal_alignment = 1
 
-[node name="Label5" type="Label" parent="." unique_id=280182446]
-offset_left = -125.0
-offset_top = -170.0
-offset_right = -43.0
-offset_bottom = -147.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=368177501]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1243434706]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Score:"
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2119492809]
+layout_mode = 2
+script = ExtResource("1_vlfh2")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1516450654]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label5" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=280182446]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Highscore:"
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1070173057]
+layout_mode = 2
+script = ExtResource("2_a3pvi")
