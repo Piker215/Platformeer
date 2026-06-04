@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://btxsxmhag5uds" path="res://players/playerreal.tscn" id="2_2a8rs"]
 [ext_resource type="PackedScene" uid="uid://duwhkvnstlcnj" path="res://scenes/game/lenemy.tscn" id="3_4j704"]
 [ext_resource type="Script" uid="uid://bvyh55d733sf2" path="res://scenes/game/moneys.gd" id="4_5jirj"]
-[ext_resource type="Script" uid="uid://bmrs86wk4gbfs" path="res://scenes/game/mushroom.gd" id="4_kp23o"]
 [ext_resource type="Script" uid="uid://bhgnulp4hexxo" path="res://scenes/game/killbrick.gd" id="5_5jirj"]
 [ext_resource type="Texture2D" uid="uid://b85bpo1jswfpe" path="res://assets/killbrick.png" id="6_4j704"]
 [ext_resource type="Script" uid="uid://cnc3ly1wwjra5" path="res://scenes/game/goldenmushroom.gd" id="6_vaxfo"]
@@ -599,10 +598,6 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_vaxfo"]
 sources/0 = SubResource("TileSetAtlasSource_5jirj")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpr0p"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_78awf"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aug50"]
 size = Vector2(18, 9)
 
@@ -742,10 +737,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vaxfo"]
-size = Vector2(823.28125, 2205)
+size = Vector2(536.3594, 2205)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5jirj"]
-size = Vector2(968, 2189)
+size = Vector2(594, 2189)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5jirj"]
 radius = 11.0
@@ -794,19 +789,6 @@ zoom = Vector2(2.5, 2.5)
 
 [node name="lenemy" parent="." unique_id=1732548339 instance=ExtResource("3_4j704")]
 position = Vector2(506, 1)
-
-[node name="mushroom" type="Area2D" parent="." unique_id=981144700]
-position = Vector2(1924, 299)
-script = ExtResource("4_kp23o")
-
-[node name="collishroom" type="CollisionShape2D" parent="mushroom" unique_id=225235583]
-position = Vector2(-2, 20)
-shape = SubResource("RectangleShape2D_cpr0p")
-
-[node name="mushsprite" type="Sprite2D" parent="mushroom" unique_id=880890974]
-position = Vector2(-2, 20.000004)
-scale = Vector2(19.999994, 19.999998)
-texture = SubResource("CanvasTexture_78awf")
 
 [node name="killbrick" type="Area2D" parent="." unique_id=314723096 groups=["killbricks", "movings"]]
 position = Vector2(-103, 17)
@@ -876,7 +858,7 @@ script = ExtResource("7_ftsea")
 position = Vector2(436.46533, 1342.1853)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleporter4" unique_id=71840300]
-position = Vector2(-442.46533, -626.5447)
+position = Vector2(-434.46533, -759.1853)
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_vaxfo")
 
@@ -884,7 +866,7 @@ shape = SubResource("RectangleShape2D_vaxfo")
 position = Vector2(206, -470.99997)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleporter3" unique_id=704274973]
-position = Vector2(-206, -227.00003)
+position = Vector2(-206, -97.00003)
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_vaxfo")
 
@@ -892,14 +874,14 @@ shape = SubResource("RectangleShape2D_vaxfo")
 position = Vector2(794.5426, 93.98245)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleporter2" unique_id=1321705948]
-position = Vector2(169.73865, -82.48245)
+position = Vector2(26.27771, -82.48245)
 shape = SubResource("RectangleShape2D_vaxfo")
 
 [node name="teleporter1" type="Area2D" parent="." unique_id=2032111933]
 position = Vector2(-715.2831, -101.12921)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleporter1" unique_id=795186378]
-position = Vector2(-320.71692, 112.62921)
+position = Vector2(-133.71692, 112.62921)
 shape = SubResource("RectangleShape2D_5jirj")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=958433415]
@@ -930,7 +912,7 @@ position = Vector2(535.50006, 11.499998)
 scale = Vector2(5.0000186, 559)
 texture = SubResource("CanvasTexture_5jirj")
 
-[node name="tree" type="Area2D" parent="." unique_id=1817835983]
+[node name="tree" type="StaticBody2D" parent="." unique_id=261560666]
 position = Vector2(394, 90)
 
 [node name="treecol" type="CollisionShape2D" parent="tree" unique_id=2092558790]
@@ -989,24 +971,23 @@ text = "Money"
 label_settings = SubResource("LabelSettings_ftsea")
 
 [node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/HBoxContainer2" unique_id=882698778]
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 label_settings = SubResource("LabelSettings_otnwt")
 script = ExtResource("4_5jirj")
 
-[connection signal="area_entered" from="mushroom" to="mushroom" method="_on_area_entered"]
-[connection signal="body_entered" from="mushroom" to="mushroom" method="_on_body_entered"]
 [connection signal="body_entered" from="killbrick" to="killbrick" method="_on_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="." method="_on_goldenmushroom_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="killbrick" method="_on_goldenmushroom_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="goldenmushroom" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="playerreal" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="killbrick" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="CanvasLayer/MarginContainer/HBoxContainer2/progress" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="CanvasLayer/MarginContainer/HBoxContainer2/progress/progressgraphic" method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer" to="killbrick" method="_on_timer_timeout"]
-[connection signal="area_entered" from="teleporter4" to="playerreal" method="_on_teleporter_4_area_entered"]
-[connection signal="area_entered" from="teleporter3" to="playerreal" method="_on_teleporter_3_area_entered"]
-[connection signal="area_entered" from="teleporter2" to="playerreal" method="_on_teleporter_2_area_entered"]
-[connection signal="area_entered" from="teleporter1" to="playerreal" method="_on_teleporter_1_area_entered"]
+[connection signal="body_entered" from="teleporter4" to="playerreal" method="_on_teleporter_4_body_entered"]
+[connection signal="body_entered" from="teleporter3" to="playerreal" method="_on_teleporter_3_body_entered"]
+[connection signal="body_entered" from="teleporter2" to="playerreal" method="_on_teleporter_2_body_entered"]
+[connection signal="body_entered" from="teleporter1" to="playerreal" method="_on_teleporter_1_body_entered"]
 [connection signal="body_entered" from="Area2D" to="playerreal" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="playerreal" method="_on_area_2d_body_exited"]
 [connection signal="value_changed" from="CanvasLayer/MarginContainer/HBoxContainer2/progress" to="playerreal" method="_on_progress_value_changed"]

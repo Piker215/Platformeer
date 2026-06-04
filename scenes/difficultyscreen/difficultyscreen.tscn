@@ -2,50 +2,57 @@
 
 [ext_resource type="Script" uid="uid://b2xh166uu2olp" path="res://scenes/difficultyscreen/difficultyscreen.gd" id="1_532yp"]
 [ext_resource type="PackedScene" uid="uid://c1s8l461y5cv5" path="res://scenes/difficultyscreen/playerdifficulty.tscn" id="2_ikabx"]
+[ext_resource type="Texture2D" uid="uid://brnuah70w1mgb" path="res://assets/background.png" id="2_xhdkj"]
+[ext_resource type="FontFile" uid="uid://co0jg3tem4vgs" path="res://assets/Pixel Digivolve.otf" id="3_41qgp"]
 [ext_resource type="Script" uid="uid://cw6cv3n0ef0mg" path="res://scenes/difficultyscreen/easy.gd" id="3_v7fuq"]
 [ext_resource type="Script" uid="uid://bfisarraufpjq" path="res://scenes/difficultyscreen/medium.gd" id="4_drkpv"]
 [ext_resource type="Script" uid="uid://bc8kc4ty67v8y" path="res://scenes/difficultyscreen/hard.gd" id="5_8ditd"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_xwp1e"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_41qgp"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xhdkj"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lodve"]
-size = Vector2(55, 36)
+size = Vector2(71, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qugoy"]
-size = Vector2(77, 32)
+size = Vector2(71, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5f6vc"]
-size = Vector2(53, 31)
+size = Vector2(77, 32)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_28v6e"]
 
 [node name="Node2D" type="Node2D" unique_id=1561517176]
 script = ExtResource("1_532yp")
 
+[node name="background" type="Sprite2D" parent="." unique_id=1874521252]
+position = Vector2(-23.5, -14.9999695)
+scale = Vector2(1.399, 1.41637)
+texture = ExtResource("2_xhdkj")
+
+[node name="hardspr" type="Sprite2D" parent="." unique_id=974190816]
+position = Vector2(88.5, -73)
+scale = Vector2(77.00001, 32.000004)
+skew = 0.2617994
+texture = SubResource("CanvasTexture_xwp1e")
+
+[node name="medspr" type="Sprite2D" parent="." unique_id=1670843784]
+position = Vector2(4.499998, -73)
+scale = Vector2(71, 31.999998)
+skew = 0.2617994
+texture = SubResource("CanvasTexture_41qgp")
+
+[node name="easyspr" type="Sprite2D" parent="." unique_id=1248598768]
+position = Vector2(-75.5, -73)
+scale = Vector2(71.00001, 32.000004)
+skew = 0.2617994
+texture = SubResource("CanvasTexture_xhdkj")
+
 [node name="playerdifficulty" parent="." unique_id=233652545 instance=ExtResource("2_ikabx")]
 position = Vector2(6, 0)
-
-[node name="TextEdit" type="TextEdit" parent="." unique_id=458242384]
-offset_left = -103.0
-offset_top = -91.0
-offset_right = -48.0
-offset_bottom = -57.0
-text = "Easy"
-metadata/_edit_use_anchors_ = true
-
-[node name="TextEdit2" type="TextEdit" parent="." unique_id=372053180]
-offset_left = -31.0
-offset_top = -89.0
-offset_right = 46.0
-offset_bottom = -58.0
-text = "Medium"
-metadata/_edit_use_anchors_ = true
-
-[node name="TextEdit3" type="TextEdit" parent="." unique_id=1162479035]
-offset_left = 65.0
-offset_top = -88.0
-offset_right = 117.840454
-offset_bottom = -57.93434
-text = "Hard"
-metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1514412883]
 
@@ -62,7 +69,7 @@ position = Vector2(-30.688965, -45.946228)
 script = ExtResource("4_drkpv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="medium" unique_id=460203667]
-position = Vector2(38.188965, -27.053772)
+position = Vector2(35.188965, -27.053772)
 shape = SubResource("RectangleShape2D_qugoy")
 
 [node name="hard" type="Area2D" parent="." unique_id=489866578 groups=["difficulty"]]
@@ -70,7 +77,7 @@ position = Vector2(58.451904, -40.984253)
 script = ExtResource("5_8ditd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hard" unique_id=93702448]
-position = Vector2(33.048096, -31.515747)
+position = Vector2(30.048096, -32.015747)
 shape = SubResource("RectangleShape2D_5f6vc")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=239938371]
@@ -79,12 +86,41 @@ position = Vector2(2, 35)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=576504741]
 shape = SubResource("WorldBoundaryShape2D_28v6e")
 
-[node name="Label" type="Label" parent="." unique_id=1316385344]
-offset_left = -57.0
+[node name="diftxt" type="Label" parent="." unique_id=1316385344]
+offset_left = -81.0
 offset_top = -126.0
-offset_right = 72.0
+offset_right = 82.0
 offset_bottom = -103.0
+theme_override_colors/font_color = Color(1, 0.83137256, 0, 1)
+theme_override_fonts/font = ExtResource("3_41qgp")
 text = "Choose difficulty"
+metadata/_edit_use_anchors_ = true
+
+[node name="hardtxt" type="Label" parent="." unique_id=941139300]
+offset_left = 68.0
+offset_top = -86.0
+offset_right = 120.840454
+offset_bottom = -55.93434
+theme_override_fonts/font = ExtResource("3_41qgp")
+text = "Hard"
+metadata/_edit_use_anchors_ = true
+
+[node name="mediumtxt" type="Label" parent="." unique_id=1800332737]
+offset_left = -28.0
+offset_top = -86.0
+offset_right = 49.0
+offset_bottom = -55.0
+theme_override_fonts/font = ExtResource("3_41qgp")
+text = "Medium"
+metadata/_edit_use_anchors_ = true
+
+[node name="easytxt" type="Label" parent="." unique_id=495835696]
+offset_left = -93.0
+offset_top = -87.0
+offset_right = -38.0
+offset_bottom = -53.0
+theme_override_fonts/font = ExtResource("3_41qgp")
+text = "Easy"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="easy" to="easy" method="_on_body_entered"]

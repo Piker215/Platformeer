@@ -1,1 +1,3 @@
 # the-game
+This is the first game and finished project i have ever done. AI was used mostly for debugging the project and learning GDscript and it's usage in code is under 30%.
+In the game, you play as a man collecting mushrooms while avoiding a spider chasing you and fields of fire that spawn when you collect a mushroom. The higher the difficulty, the more fire spawns when you collect a mushroom. Get the highest score possible, and have fun!

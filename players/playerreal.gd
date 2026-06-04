@@ -69,26 +69,6 @@ func _on_progress_value_changed(value: float) -> void:
 		pass
 
 
-func _on_teleporter_1_area_entered(area: Area2D) -> void:
-	position = Vector2(500, 0)
-	pass # Replace with function body.
-
-
-func _on_teleporter_2_area_entered(area: Area2D) -> void:
-	position = Vector2(-500, 0)
-	pass # Replace with function body.
-
-
-func _on_teleporter_3_area_entered(area: Area2D) -> void:
-	position = Vector2(0, -200)
-	pass # Replace with function body.
-
-
-func _on_teleporter_4_area_entered(area: Area2D) -> void:
-	position = Vector2(0, 200)
-	pass # Replace with function body.
-
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	speed = 70
 	pass # Replace with function body.
@@ -96,4 +76,24 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	speed = 300
+	pass # Replace with function body.
+
+
+func _on_teleporter_1_body_entered(body: Node2D) -> void:
+	position = Vector2(500, 0)
+	pass # Replace with function body.
+
+
+func _on_teleporter_2_body_entered(body: Node2D) -> void:
+	position = Vector2(-500, 0)
+	pass # Replace with function body.
+
+
+func _on_teleporter_3_body_entered(body: Node2D) -> void:
+	position = Vector2(0, 200)
+	pass # Replace with function body.
+
+
+func _on_teleporter_4_body_entered(body: Node2D) -> void:
+	position = Vector2(0, -200)
 	pass # Replace with function body.

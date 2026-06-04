@@ -8,7 +8,6 @@ func _ready() -> void:
 	animator.play("default")
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	floor_max_angle = 10
