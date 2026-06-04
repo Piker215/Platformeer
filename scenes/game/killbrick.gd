@@ -1,9 +1,9 @@
 extends Area2D
 @onready var animator := $killbrickanim
 @onready var times = 0
+@onready var playerreal: CharacterBody2D = $"../playerreal"
 @onready var grouppp := get_tree().get_nodes_in_group("difficulty")
 @onready var goldy := get_node("../goldenmushroom")
-@onready var goldenshroomy := global_position.distance_to(goldy.global_position)
 @onready var groupp := get_tree().get_first_node_in_group("movingse")
 @onready var killbricks := get_tree().get_nodes_in_group("killbricks")
 @onready var n := get_tree().get_node_count_in_group("killbricks")
@@ -11,6 +11,7 @@ extends Area2D
 @onready var difficults := get_tree().get_nodes_in_group("difficulty")
 @onready var timer := get_node("../Timer")
 @onready var col := get_tree().get_nodes_in_group("killbricks")
+@onready var killsfx: AudioStreamPlayer = $killsfx
 
 var difficulter = difficulty.difficultyer
 var scaler = 1
@@ -37,6 +38,7 @@ func _ready() -> void:
 func _on_body_entered(body: CharacterBody2D) -> void:
 	
 	if body == groupp:
+		musicplayer.play_death()
 		print("You died!")
 		if points.pointse >= maximum.maximals:
 			maximum.maximals = points.pointse
@@ -56,9 +58,16 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 		#distance = global_position.distance_to(killbricks[n - 1].position)
 #	collisioner = duplicator.get_child(0)
 	for n in difficulter:
+		var current = position
+		var goldenshroomy := global_position.distance_to(goldy.position)
+		var playerrealdist := global_position.distance_to(playerreal.position)
+		print(goldenshroomy)
+		print(playerrealdist)
 		var duplicator = duplicate()
 		get_parent().add_child(duplicator)
 		duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+		while playerrealdist < 50 || goldenshroomy < 50:
+			duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		#while distance < 100:
 			#position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 			#print("ayay")

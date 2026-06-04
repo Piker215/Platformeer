@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d0xa07mevpicp"]
+
+[ext_resource type="Script" uid="uid://5q2km1f1pipg" path="res://scenes/music/musicplayer.gd" id="1_4srwp"]
+[ext_resource type="AudioStream" uid="uid://kucytfnwuq35" path="res://assets/gamemusictrue.wav" id="2_ixqel"]
+[ext_resource type="AudioStream" uid="uid://dt100ilpr75ws" path="res://assets/death.wav" id="3_vyxgx"]
+[ext_resource type="AudioStream" uid="uid://xlm5dhnn3em" path="res://assets/collect.wav" id="4_kbls8"]
+
+[node name="musicplayer" type="Node" unique_id=866525824]
+script = ExtResource("1_4srwp")
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=1055933063]
+stream = ExtResource("2_ixqel")
+volume_db = -5.0
+
+[node name="death" type="AudioStreamPlayer" parent="." unique_id=1564139948]
+stream = ExtResource("3_vyxgx")
+
+[node name="collect" type="AudioStreamPlayer" parent="." unique_id=525313689]
+stream = ExtResource("4_kbls8")
+
+[connection signal="finished" from="music" to="." method="_on_music_finished"]

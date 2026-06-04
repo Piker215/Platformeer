@@ -1,6 +1,7 @@
 extends Node2D
 
-
+func _ready() -> void:
+	musicplayer.play_music()
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Start"):

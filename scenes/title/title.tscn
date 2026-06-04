@@ -6,7 +6,6 @@
 [ext_resource type="FontFile" uid="uid://co0jg3tem4vgs" path="res://assets/Pixel Digivolve.otf" id="3_yjwoi"]
 [ext_resource type="Script" uid="uid://bp2phor4epatn" path="res://scenes/title/storeteleporter.gd" id="4_7s5iw"]
 [ext_resource type="Texture2D" uid="uid://brnuah70w1mgb" path="res://assets/background.png" id="6_g4gru"]
-[ext_resource type="AudioStream" uid="uid://dq0fmv153y3sa" path="res://assets/gamemusic.wav" id="7_7s5iw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6e84v"]
 
@@ -101,9 +100,18 @@ To Start"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1364309298]
-stream = ExtResource("7_7s5iw")
-autoplay = true
+[node name="Label" type="Label" parent="." unique_id=2051065581]
+offset_left = 252.0
+offset_top = 169.0
+offset_right = 292.0
+offset_bottom = 192.0
+theme_override_fonts/font = ExtResource("3_yjwoi")
+text = "store"
+
+[node name="arrow" type="Polygon2D" parent="." unique_id=1044000474]
+position = Vector2(52, -54)
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(239, 251, 213, 251, 213, 258, 203, 251, 213, 242, 213, 249, 239, 249)
 
 [connection signal="body_entered" from="gameteleporter" to="gameteleporter" method="_on_body_entered"]
 [connection signal="body_entered" from="storeteleporter" to="storeteleporter" method="_on_body_entered"]

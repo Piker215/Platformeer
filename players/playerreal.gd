@@ -43,8 +43,9 @@ func _physics_process(delta: float) -> void:
 			speed = 300
 			$collreal.disabled = false
 		elif ability.abilities == "invincibility":
+			proggress.value = 0
 			$collreal.disabled = true
-			await get_tree().create_timer(5).timeout
+			await get_tree().create_timer(1).timeout
 			$collreal.disabled = false
 
 	move_and_slide()

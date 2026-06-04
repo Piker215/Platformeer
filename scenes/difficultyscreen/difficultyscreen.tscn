@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://cw6cv3n0ef0mg" path="res://scenes/difficultyscreen/easy.gd" id="3_v7fuq"]
 [ext_resource type="Script" uid="uid://bfisarraufpjq" path="res://scenes/difficultyscreen/medium.gd" id="4_drkpv"]
 [ext_resource type="Script" uid="uid://bc8kc4ty67v8y" path="res://scenes/difficultyscreen/hard.gd" id="5_8ditd"]
-[ext_resource type="AudioStream" uid="uid://dq0fmv153y3sa" path="res://assets/gamemusic.wav" id="8_dik47"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xwp1e"]
 
@@ -123,10 +122,6 @@ offset_bottom = -53.0
 theme_override_fonts/font = ExtResource("3_41qgp")
 text = "Easy"
 metadata/_edit_use_anchors_ = true
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=186072636]
-stream = ExtResource("8_dik47")
-autoplay = true
 
 [connection signal="body_entered" from="easy" to="easy" method="_on_body_entered"]
 [connection signal="body_entered" from="medium" to="medium" method="_on_body_entered"]

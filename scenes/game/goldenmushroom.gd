@@ -3,6 +3,7 @@ extends Area2D
 @onready var player := get_node("../playerreal")
 @onready var killbrick := get_tree().get_nodes_in_group("killbricks")
 @onready var game := get_node("../game")
+@onready var goldsfx: AudioStreamPlayer = $goldsfx
 
 
 func _ready() -> void:
@@ -18,12 +19,18 @@ func close(close: Node):
 
 func _on_body_entered(body: Node2D) -> void:
 	if body == player:
+		musicplayer.play_collect()
 		randomize()
 		position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		while killbrick.any(close):
 			position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 #		while killbrick.any(body_entered):
 #			position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
-		money.moneys += 5
+		if difficulty.difficultyer == 1:
+			money.moneys += 5
+		elif difficulty.difficultyer == 3:
+			money.moneys += 10
+		elif difficulty.difficultyer == 6:
+			money.moneys += 15
 		points.pointse += 1 
 	pass 

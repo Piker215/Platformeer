@@ -8,6 +8,7 @@ func _ready() -> void:
 func _on_body_entered(body: CharacterBody2D) -> void:
 	print(tre[0])
 	if body == tre[0]:
+		musicplayer.play_death()
 		print("You died!")
 		if points.pointse >= maximum.maximals:
 			maximum.maximals = points.pointse

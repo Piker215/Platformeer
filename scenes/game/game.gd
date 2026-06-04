@@ -23,3 +23,8 @@ func _ready() -> void:
 		#$colkick.disabled = false
 		#$spritebrick.modulate = Color.ORANGE_RED
 	#pass # Replace with function body.
+
+
+func _on_music_finished() -> void:
+	$music.play()
+	pass # Replace with function body.
