@@ -954,6 +954,16 @@ texture_under = SubResource("CanvasTexture_400sg")
 texture_over = SubResource("CanvasTexture_g4kob")
 texture_progress = SubResource("GradientTexture1D_400sg")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer2" unique_id=846381976]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="difflevel" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer2/HBoxContainer" unique_id=1838073259]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_vaxfo")
+horizontal_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=790303446]
 layout_mode = 2
 size_flags_horizontal = 8

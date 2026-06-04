@@ -32,5 +32,7 @@ func _on_body_entered(body: Node2D) -> void:
 			money.moneys += 10
 		elif difficulty.difficultyer == 6:
 			money.moneys += 15
+		elif difficulty.difficultyer == 0:
+			money.moneys += 5
 		points.pointse += 1 
 	pass 

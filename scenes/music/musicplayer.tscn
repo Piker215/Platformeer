@@ -14,8 +14,10 @@ volume_db = -5.0
 
 [node name="death" type="AudioStreamPlayer" parent="." unique_id=1564139948]
 stream = ExtResource("3_vyxgx")
+volume_db = 5.0
 
 [node name="collect" type="AudioStreamPlayer" parent="." unique_id=525313689]
 stream = ExtResource("4_kbls8")
+volume_db = -5.0
 
 [connection signal="finished" from="music" to="." method="_on_music_finished"]

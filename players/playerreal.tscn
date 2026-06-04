@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://b1qwi54anvlqj" path="res://players/arrow.gd" id="4_t0ho4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5avn"]
-size = Vector2(14, 21)
+size = Vector2(14, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0ho4"]
 atlas = ExtResource("2_p4j0j")
@@ -214,12 +214,13 @@ animations = [{
 script = ExtResource("1_w5avn")
 
 [node name="collreal" type="CollisionShape2D" parent="." unique_id=438938481]
-position = Vector2(0, 0.5)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_w5avn")
 
 [node name="playersprite" type="AnimatedSprite2D" parent="." unique_id=424868319]
 sprite_frames = SubResource("SpriteFrames_w5avn")
 animation = &"rocket down"
+frame_progress = 0.95183235
 script = ExtResource("3_tt8er")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1007181189 groups=["camera"]]

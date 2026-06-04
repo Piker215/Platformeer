@@ -58,15 +58,16 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 		#distance = global_position.distance_to(killbricks[n - 1].position)
 #	collisioner = duplicator.get_child(0)
 	for n in difficulter:
-		var current = position
+		var duplicator = duplicate()
+		get_parent().add_child(duplicator)
+		duplicator.position = position
 		var goldenshroomy := global_position.distance_to(goldy.position)
 		var playerrealdist := global_position.distance_to(playerreal.position)
 		print(goldenshroomy)
 		print(playerrealdist)
-		var duplicator = duplicate()
-		get_parent().add_child(duplicator)
+		print(position)
 		duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
-		while playerrealdist < 50 || goldenshroomy < 50:
+		if playerrealdist < 50 || goldenshroomy < 50:
 			duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		#while distance < 100:
 			#position = Vector2(randf_range(-500, 500), randf_range(-200, 200))

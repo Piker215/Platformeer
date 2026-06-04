@@ -2,6 +2,7 @@ extends Node2D
 @onready var movingset = get_tree().get_nodes_in_group("movings")
 @onready var killbricks := get_tree().get_nodes_in_group("killbricks")
 @onready var camera = get_tree().get_first_node_in_group("camera")
+@onready var difflevel: Label = $CanvasLayer/MarginContainer/HBoxContainer2/HBoxContainer/difflevel
 #var duplicator := $mushroom.duplicate()
 #var wait := await get_tree().await_timer(1.5).timeout
 
@@ -9,7 +10,18 @@ extends Node2D
 func _ready() -> void:
 	camera.make_current()
 	$Timer.start()
-	
+	if difficulty.difficultyer == 6:
+		difflevel.text = "Hard"
+		difflevel.modulate = Color.RED
+	elif difficulty.difficultyer == 3:
+		difflevel.text = "Medium"
+		difflevel.modulate = Color.YELLOW
+	elif difficulty.difficultyer == 1:
+		difflevel.text = "Easy"
+		difflevel.modulate = Color.DARK_GREEN
+	elif difficulty.difficultyer == 0:
+		difflevel.text = "Safe"
+		difflevel.modulate = Color.AQUAMARINE
 	#for n in 4:
 	#duplicator
 	pass 
