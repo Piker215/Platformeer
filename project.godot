@@ -15,6 +15,10 @@ run/main_scene="uid://dj0qnlsdmvbg0"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://dxrges51cban"
+
 [autoload]
 
 difficulty="*uid://bgr37dcybldeg"
@@ -22,6 +26,7 @@ ability="*uid://pntgl2gn1lq1"
 money="*uid://cp8ubqpu0fcmd"
 points="*uid://5fsd154doibx"
 maximum="*uid://r8n4pp3n4iwr"
+music="*uid://b8sywass3tf2"
 
 [editor_plugins]
 

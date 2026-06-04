@@ -11,11 +11,17 @@ func _ready() -> void:
 	position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 	
 	pass 
+	
+func close(close: Node):
+	var posite = close.position
+	global_position.distance_to(posite) < 300
 
 func _on_body_entered(body: Node2D) -> void:
 	if body == player:
 		randomize()
 		position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+		while killbrick.any(close):
+			position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 #		while killbrick.any(body_entered):
 #			position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		money.moneys += 5

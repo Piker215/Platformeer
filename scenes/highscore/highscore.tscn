@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://c0un2ydx5kdtg" path="res://scenes/highscore/label.gd" id="1_vlfh2"]
 [ext_resource type="Script" uid="uid://b4wow8087tsfr" path="res://scenes/highscore/highscorelab.gd" id="2_a3pvi"]
 [ext_resource type="FontFile" uid="uid://co0jg3tem4vgs" path="res://assets/Pixel Digivolve.otf" id="2_kcsy8"]
+[ext_resource type="Texture2D" uid="uid://brnuah70w1mgb" path="res://assets/background.png" id="5_6d5g7"]
+[ext_resource type="AudioStream" uid="uid://dq0fmv153y3sa" path="res://assets/gamemusic.wav" id="6_o1ki7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0jogh"]
 
@@ -79,3 +81,15 @@ text = "Highscore:"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_kcsy8")
 script = ExtResource("2_a3pvi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=550515291]
+position = Vector2(4.9999995, -107.75002)
+scale = Vector2(1.3790001, 1.5489321)
+texture = ExtResource("5_6d5g7")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=844652393]
+position = Vector2(4.9999995, -107.75002)
+scale = Vector2(1.3790001, 1.5489321)
+stream = ExtResource("6_o1ki7")
+autoplay = true
+playback_type = 1

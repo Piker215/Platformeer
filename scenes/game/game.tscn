@@ -14,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://co0jg3tem4vgs" path="res://assets/Pixel Digivolve.otf" id="11_vaxfo"]
 [ext_resource type="Texture2D" uid="uid://b63jetytdci5m" path="res://assets/tilemap.png" id="12_5jirj"]
 [ext_resource type="Script" uid="uid://cr4d0mllgkpjk" path="res://scenes/game/killbrickanim.gd" id="12_otnwt"]
+[ext_resource type="AudioStream" uid="uid://dq0fmv153y3sa" path="res://assets/gamemusic.wav" id="15_otnwt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5jirj"]
 texture = ExtResource("12_5jirj")
@@ -976,8 +977,11 @@ layout_mode = 2
 label_settings = SubResource("LabelSettings_otnwt")
 script = ExtResource("4_5jirj")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=169919634]
+stream = ExtResource("15_otnwt")
+autoplay = true
+
 [connection signal="body_entered" from="killbrick" to="killbrick" method="_on_body_entered"]
-[connection signal="body_entered" from="goldenmushroom" to="." method="_on_goldenmushroom_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="killbrick" method="_on_goldenmushroom_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="goldenmushroom" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="playerreal" method="_on_timer_timeout"]

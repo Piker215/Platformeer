@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://co0jg3tem4vgs" path="res://assets/Pixel Digivolve.otf" id="3_yjwoi"]
 [ext_resource type="Script" uid="uid://bp2phor4epatn" path="res://scenes/title/storeteleporter.gd" id="4_7s5iw"]
 [ext_resource type="Texture2D" uid="uid://brnuah70w1mgb" path="res://assets/background.png" id="6_g4gru"]
+[ext_resource type="AudioStream" uid="uid://dq0fmv153y3sa" path="res://assets/gamemusic.wav" id="7_7s5iw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6e84v"]
 
@@ -18,7 +19,7 @@ size = Vector2(46.5, 695)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aa56r"]
 size = Vector2(37, 626.25)
 
-[node name="Node2D" type="Node2D" unique_id=251634216]
+[node name="title" type="Node2D" unique_id=251634216]
 script = ExtResource("1_7hvf5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=342619548]
@@ -99,6 +100,10 @@ text = "Press Enter
 To Start"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1364309298]
+stream = ExtResource("7_7s5iw")
+autoplay = true
 
 [connection signal="body_entered" from="gameteleporter" to="gameteleporter" method="_on_body_entered"]
 [connection signal="body_entered" from="storeteleporter" to="storeteleporter" method="_on_body_entered"]
