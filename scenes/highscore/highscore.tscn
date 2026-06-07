@@ -82,6 +82,6 @@ theme_override_fonts/font = ExtResource("2_kcsy8")
 script = ExtResource("2_a3pvi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=550515291]
-position = Vector2(4.9999995, -107.75002)
-scale = Vector2(1.3790001, 1.5489321)
+position = Vector2(0.50003815, 3.499981)
+scale = Vector2(2.2549999, 2.613879)
 texture = ExtResource("5_6d5g7")

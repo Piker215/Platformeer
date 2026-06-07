@@ -35,8 +35,8 @@ size = Vector2(77, 32)
 script = ExtResource("1_532yp")
 
 [node name="background" type="Sprite2D" parent="." unique_id=1874521252]
-position = Vector2(1.0000057, 30)
-scale = Vector2(1.399, 1.41637)
+position = Vector2(8.499863, 8.5)
+scale = Vector2(2.259, 2.5071173)
 texture = ExtResource("2_xhdkj")
 
 [node name="safespr" type="Sprite2D" parent="." unique_id=1548080067]

@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cfk05ikebsy3p" path="res://scenes/store/dash.gd" id="3_dq3y1"]
 [ext_resource type="Texture2D" uid="uid://i5sr7pho6bpm" path="res://assets/playerreal (1).png" id="4_aloq4"]
 [ext_resource type="Script" uid="uid://bmox5pfkap6e" path="res://scenes/store/storeplayer.gd" id="4_yimk0"]
+[ext_resource type="Script" uid="uid://r8pv2vl00mw2" path="res://scenes/store/teleporter.gd" id="8_xbntn"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_yimk0"]
 
@@ -110,12 +111,15 @@ size = Vector2(110, 40.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atuvt"]
 size = Vector2(107, 41)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yimk0"]
+size = Vector2(145, 1709)
+
 [node name="store" type="Node2D" unique_id=361815150]
 script = ExtResource("1_nhl0m")
 
 [node name="background" type="Sprite2D" parent="." unique_id=1284924566]
-position = Vector2(-5.9999847, -3.8146973e-06)
-scale = Vector2(1.2560002, 1.2669039)
+position = Vector2(2.499943, 3.0000305)
+scale = Vector2(2.511, 2.4875445)
 texture = ExtResource("2_yimk0")
 
 [node name="invspr" type="Sprite2D" parent="." unique_id=1346546843]
@@ -203,5 +207,21 @@ offset_bottom = -149.0
 theme_override_fonts/font = ExtResource("2_aloq4")
 text = "Press \"Enter\" to return"
 
+[node name="teleporter2" type="Area2D" parent="." unique_id=644278136]
+script = ExtResource("8_xbntn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleporter2" unique_id=1152984803]
+position = Vector2(-1310, -15)
+shape = SubResource("RectangleShape2D_yimk0")
+
+[node name="teleporter" type="Area2D" parent="." unique_id=1082462043]
+script = ExtResource("8_xbntn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleporter" unique_id=698698494]
+position = Vector2(1217, 1)
+shape = SubResource("RectangleShape2D_yimk0")
+
 [connection signal="body_entered" from="invincibility" to="invincibility" method="_on_body_entered"]
 [connection signal="body_entered" from="dash" to="dash" method="_on_body_entered"]
+[connection signal="body_entered" from="teleporter2" to="teleporter2" method="_on_body_entered"]
+[connection signal="body_entered" from="teleporter" to="teleporter" method="_on_body_entered"]

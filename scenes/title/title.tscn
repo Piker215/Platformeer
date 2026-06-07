@@ -23,8 +23,8 @@ script = ExtResource("1_7hvf5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=342619548]
 light_mask = 2
-position = Vector2(391.00003, 244)
-scale = Vector2(1.518, 1.4288256)
+position = Vector2(393.49997, 227.99997)
+scale = Vector2(1.991, 2.2953737)
 texture = ExtResource("6_g4gru")
 
 [node name="Player" parent="." unique_id=1451863589 instance=ExtResource("2_yjwoi")]
