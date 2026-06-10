@@ -9,6 +9,9 @@
 [ext_resource type="Script" uid="uid://bmox5pfkap6e" path="res://scenes/store/storeplayer.gd" id="4_yimk0"]
 [ext_resource type="Script" uid="uid://bljfjodool5sn" path="res://scenes/store/teleporter_2.gd" id="8_ler8j"]
 [ext_resource type="Script" uid="uid://r8pv2vl00mw2" path="res://scenes/store/teleporter.gd" id="8_xbntn"]
+[ext_resource type="Script" uid="uid://bo65xo1opfqyr" path="res://scenes/store/stun.gd" id="10_7f1bx"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ler8j"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_yimk0"]
 
@@ -107,7 +110,7 @@ animations = [{
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jmp1n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jmp1n"]
-size = Vector2(110, 40.75)
+size = Vector2(111.36842, 40.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atuvt"]
 size = Vector2(107, 41)
@@ -115,13 +118,22 @@ size = Vector2(107, 41)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yimk0"]
 size = Vector2(145, 1709)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7f1bx"]
+size = Vector2(101.37308, 42.446327)
+
 [node name="store" type="Node2D" unique_id=361815150]
 script = ExtResource("1_nhl0m")
 
 [node name="background" type="Sprite2D" parent="." unique_id=1284924566]
-position = Vector2(2.499943, 3.0000305)
-scale = Vector2(2.511, 2.4875445)
+position = Vector2(24.500206, -3)
+scale = Vector2(2.657, 2.4875445)
 texture = ExtResource("2_yimk0")
+
+[node name="stunspr" type="Sprite2D" parent="." unique_id=313618153]
+position = Vector2(-167.36601, -120.5)
+scale = Vector2(101.03847, 42.446327)
+skew = 0.26179934
+texture = SubResource("CanvasTexture_ler8j")
 
 [node name="invspr" type="Sprite2D" parent="." unique_id=1346546843]
 position = Vector2(-48.499985, -119.50001)
@@ -152,6 +164,13 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_aloq4")
 text = "Dash"
 horizontal_alignment = 1
+
+[node name="stuntxt" type="Label" parent="." unique_id=1537251249]
+offset_left = -205.0
+offset_top = -130.0
+offset_right = -128.0
+offset_bottom = -107.0
+text = "Stun"
 
 [node name="storeplayer" type="CharacterBody2D" parent="." unique_id=1193781359 groups=["storeplayer"]]
 position = Vector2(0, -34)
@@ -189,7 +208,9 @@ position = Vector2(-43, -114)
 script = ExtResource("2_codmc")
 
 [node name="invcol" type="CollisionShape2D" parent="invincibility" unique_id=1036707184]
-position = Vector2(-5, -5.625)
+position = Vector2(-5.6842117, -5.625)
+scale = Vector2(1, 0.99999994)
+skew = 0.26179934
 shape = SubResource("RectangleShape2D_jmp1n")
 
 [node name="dash" type="Area2D" parent="." unique_id=1324057360]
@@ -198,6 +219,7 @@ script = ExtResource("3_dq3y1")
 
 [node name="dashcol" type="CollisionShape2D" parent="dash" unique_id=385336059]
 position = Vector2(1.5, 1.5)
+skew = 0.2617994
 shape = SubResource("RectangleShape2D_atuvt")
 
 [node name="Label3" type="Label" parent="." unique_id=1644757337]
@@ -224,7 +246,18 @@ script = ExtResource("8_xbntn")
 position = Vector2(62, -68)
 shape = SubResource("RectangleShape2D_yimk0")
 
+[node name="stun" type="Area2D" parent="." unique_id=384005849]
+position = Vector2(-177.65149, -231.8459)
+script = ExtResource("10_7f1bx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stun" unique_id=1084673788]
+position = Vector2(10.472, 111.34591)
+scale = Vector2(1, 0.9999996)
+skew = 0.26179934
+shape = SubResource("RectangleShape2D_7f1bx")
+
 [connection signal="body_entered" from="invincibility" to="invincibility" method="_on_body_entered"]
 [connection signal="body_entered" from="dash" to="dash" method="_on_body_entered"]
 [connection signal="body_entered" from="teleporter2" to="teleporter2" method="_on_body_entered"]
 [connection signal="body_entered" from="teleporter" to="teleporter" method="_on_body_entered"]
+[connection signal="body_entered" from="stun" to="stun" method="_on_body_entered"]

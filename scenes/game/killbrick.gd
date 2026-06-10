@@ -60,7 +60,7 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 	for n in difficulter:
 		var duplicator = duplicate()
 		get_parent().add_child(duplicator)
-		duplicator.position = position
+		var positionnew = duplicator.position
 		var goldenshroomy := global_position.distance_to(goldy.position)
 		var playerrealdist := global_position.distance_to(playerreal.position)
 		print(goldenshroomy)

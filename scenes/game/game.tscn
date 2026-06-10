@@ -773,7 +773,7 @@ font = ExtResource("11_vaxfo")
 [sub_resource type="LabelSettings" id="LabelSettings_otnwt"]
 font = ExtResource("11_vaxfo")
 
-[node name="game" type="Node2D" unique_id=1713997475 groups=["killbricks"]]
+[node name="game" type="Node2D" unique_id=1713997475]
 script = ExtResource("1_87uf6")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=338596968]

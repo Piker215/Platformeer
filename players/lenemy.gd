@@ -13,9 +13,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	#var follow = global_position.direction_to(player.global_position)
-	if tres == null:
+	if stunny.status == 0:
 		var dir := (global_position.direction_to(tre.global_position))
 		velocity = dir * speed
 		move_and_slide()
+	elif stunny.status == 0:
+		velocity = Vector2(0, 0)
 	else:
 		return

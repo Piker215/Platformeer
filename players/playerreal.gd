@@ -1,5 +1,6 @@
 extends CharacterBody2D
 var speed := 300
+@onready var lenemy: CharacterBody2D = $"../lenemy"
 @onready var animator = $playersprite
 @onready var proggress = get_tree().get_first_node_in_group("progress")
 @onready var proggresor = get_node("../progress")
@@ -47,6 +48,11 @@ func _physics_process(delta: float) -> void:
 			$collreal.disabled = true
 			await get_tree().create_timer(1).timeout
 			$collreal.disabled = false
+		elif ability.abilities == "stun":
+			lenemy.velocity = Vector2(0, 0)
+			proggress.value = 0
+			await get_tree().create_timer(5).timeout
+			lenemy.velocity
 
 	move_and_slide()
 	pass
