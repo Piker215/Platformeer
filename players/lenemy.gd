@@ -17,7 +17,8 @@ func _physics_process(delta: float) -> void:
 		var dir := (global_position.direction_to(tre.global_position))
 		velocity = dir * speed
 		move_and_slide()
-	elif stunny.status == 0:
+	elif stunny.status == 1:
+		animation.play("stun")
 		velocity = Vector2(0, 0)
 	else:
 		return

@@ -3,6 +3,7 @@ extends Node2D
 @onready var killbricks := get_tree().get_nodes_in_group("killbricks")
 @onready var camera = get_tree().get_first_node_in_group("camera")
 @onready var difflevel: Label = $CanvasLayer/MarginContainer/HBoxContainer2/HBoxContainer/difflevel
+@onready var iterator: int = 0
 #var duplicator := $mushroom.duplicate()
 #var wait := await get_tree().await_timer(1.5).timeout
 
@@ -39,4 +40,19 @@ func _ready() -> void:
 
 func _on_music_finished() -> void:
 	$music.play()
+	pass # Replace with function body.
+
+
+func _on_child_entered_tree(node: Node) -> void:
+	if node.is_in_group("killbricks"):
+		var first = "killbrick"
+		node.name = first + str(iterator)
+		node.add_to_group("killbricks")
+		node.get_child(0).disabled = true
+		await get_tree().create_timer(1).timeout
+		node.get_child(0).disabled = false
+		iterator + 1
+		print(node.name)
+	else:
+		return
 	pass # Replace with function body.

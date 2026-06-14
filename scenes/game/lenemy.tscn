@@ -15,6 +15,10 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("3_iad2r")
 region = Rect2(0, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_018kl"]
+atlas = ExtResource("3_iad2r")
+region = Rect2(0, 32, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_spysg"]
 animations = [{
 "frames": [{
@@ -26,6 +30,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_018kl")
+}],
+"loop": true,
+"name": &"stun",
 "speed": 5.0
 }]
 
@@ -50,7 +62,7 @@ shape = SubResource("RectangleShape2D_nckey")
 [node name="lenemysprite" type="AnimatedSprite2D" parent="." unique_id=732653828]
 position = Vector2(2, -2)
 sprite_frames = SubResource("SpriteFrames_spysg")
-frame_progress = 0.0019049844
+animation = &"stun"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1920253526]
 libraries/ = SubResource("AnimationLibrary_bmscy")

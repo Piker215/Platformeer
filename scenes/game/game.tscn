@@ -984,6 +984,7 @@ layout_mode = 2
 label_settings = SubResource("LabelSettings_otnwt")
 script = ExtResource("4_5jirj")
 
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="body_entered" from="killbrick" to="killbrick" method="_on_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="killbrick" method="_on_goldenmushroom_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="goldenmushroom" method="_on_body_entered"]

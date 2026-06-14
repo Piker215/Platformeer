@@ -119,7 +119,7 @@ size = Vector2(107, 41)
 size = Vector2(145, 1709)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7f1bx"]
-size = Vector2(101.37308, 42.446327)
+size = Vector2(101.37308, 40.37579)
 
 [node name="store" type="Node2D" unique_id=361815150]
 script = ExtResource("1_nhl0m")
@@ -130,8 +130,8 @@ scale = Vector2(2.657, 2.4875445)
 texture = ExtResource("2_yimk0")
 
 [node name="stunspr" type="Sprite2D" parent="." unique_id=313618153]
-position = Vector2(-167.36601, -120.5)
-scale = Vector2(101.03847, 42.446327)
+position = Vector2(-167.63396, -119.5)
+scale = Vector2(101.03847, 40.37578)
 skew = 0.26179934
 texture = SubResource("CanvasTexture_ler8j")
 
@@ -148,29 +148,38 @@ skew = 0.2617994
 texture = SubResource("CanvasTexture_xbntn")
 
 [node name="invtxt" type="Label" parent="." unique_id=1701721688]
-offset_left = -102.0
-offset_top = -136.0
-offset_right = 8.0
-offset_bottom = -99.0
+offset_left = -100.0
+offset_top = -138.0
+offset_right = 10.0
+offset_bottom = -101.0
 theme_override_fonts/font = ExtResource("2_aloq4")
+theme_override_font_sizes/font_size = 14
 text = "Invincibility"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="dashtxt" type="Label" parent="." unique_id=1371817639]
-offset_left = 26.0
+offset_left = 22.0
 offset_top = -137.0
-offset_right = 129.0
+offset_right = 125.0
 offset_bottom = -102.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_aloq4")
+theme_override_font_sizes/font_size = 14
 text = "Dash"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="stuntxt" type="Label" parent="." unique_id=1537251249]
-offset_left = -205.0
-offset_top = -130.0
-offset_right = -128.0
-offset_bottom = -107.0
+offset_left = -213.0
+offset_top = -138.0
+offset_right = -122.0
+offset_bottom = -101.0
+theme_override_fonts/font = ExtResource("2_aloq4")
+theme_override_font_sizes/font_size = 14
 text = "Stun"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="storeplayer" type="CharacterBody2D" parent="." unique_id=1193781359 groups=["storeplayer"]]
 position = Vector2(0, -34)
@@ -189,18 +198,28 @@ shape = SubResource("RectangleShape2D_xpmfr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1027870278]
 shape = SubResource("WorldBoundaryShape2D_jmp1n")
 
-[node name="Label" type="Label" parent="." unique_id=783855276]
+[node name="200" type="Label" parent="." unique_id=783855276]
 offset_left = -71.0
 offset_top = -90.0
 offset_right = -31.0
 offset_bottom = -67.0
+theme_override_fonts/font = ExtResource("2_aloq4")
 text = "200"
 
-[node name="Label2" type="Label" parent="." unique_id=553439948]
+[node name="500" type="Label" parent="." unique_id=1932348643]
+offset_left = -193.0
+offset_top = -87.0
+offset_right = -153.0
+offset_bottom = -64.0
+theme_override_fonts/font = ExtResource("2_aloq4")
+text = "500"
+
+[node name="free" type="Label" parent="." unique_id=553439948]
 offset_left = 58.0
 offset_top = -95.0
 offset_right = 98.0
 offset_bottom = -72.0
+theme_override_fonts/font = ExtResource("2_aloq4")
 text = "Free"
 
 [node name="invincibility" type="Area2D" parent="." unique_id=381528184]
@@ -251,8 +270,8 @@ position = Vector2(-177.65149, -231.8459)
 script = ExtResource("10_7f1bx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stun" unique_id=1084673788]
-position = Vector2(10.472, 111.34591)
-scale = Vector2(1, 0.9999996)
+position = Vector2(10.204056, 112.3459)
+scale = Vector2(1, 0.9999995)
 skew = 0.26179934
 shape = SubResource("RectangleShape2D_7f1bx")
 

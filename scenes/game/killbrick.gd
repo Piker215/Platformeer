@@ -5,7 +5,7 @@ extends Area2D
 @onready var grouppp := get_tree().get_nodes_in_group("difficulty")
 @onready var goldy := get_node("../goldenmushroom")
 @onready var groupp := get_tree().get_first_node_in_group("movingse")
-@onready var killbricks := get_tree().get_nodes_in_group("killbricks")
+@onready var killbricks : Array = get_tree().get_nodes_in_group("killbricks")
 @onready var n := get_tree().get_node_count_in_group("killbricks")
 #@onready var distance := global_position.distance_to(killbricks.position)
 @onready var difficults := get_tree().get_nodes_in_group("difficulty")
@@ -58,6 +58,7 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 		#distance = global_position.distance_to(killbricks[n - 1].position)
 #	collisioner = duplicator.get_child(0)
 	for n in difficulter:
+		var killbrickid: String = "killbrick"
 		var duplicator = duplicate()
 		get_parent().add_child(duplicator)
 		var positionnew = duplicator.position
@@ -67,6 +68,12 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 		print(playerrealdist)
 		print(position)
 		duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+		#for i in killbricks:
+			#var killbrick : Node = killbricks[i]
+			#if killbrick.global_position.distance_to(groupp.position) < 50:
+				#duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+			#else:
+				#return
 		if playerrealdist < 50 || goldenshroomy < 50:
 			duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		#while distance < 100:

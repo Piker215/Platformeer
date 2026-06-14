@@ -51,9 +51,9 @@ func _physics_process(delta: float) -> void:
 		elif ability.abilities == "stun":
 			lenemy.velocity = Vector2(0, 0)
 			proggress.value = 0
+			stunny.status = 1
 			await get_tree().create_timer(5).timeout
-			lenemy.velocity
-
+			stunny.status = 0
 	move_and_slide()
 	pass
 
