@@ -22,3 +22,9 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2(0, 0)
 	else:
 		return
+
+
+func _on_goldenmushroom_body_entered(body: Node2D) -> void:
+	var duplicator = duplicate()
+	get_parent().add_child(duplicator)
+	pass # Replace with function body.

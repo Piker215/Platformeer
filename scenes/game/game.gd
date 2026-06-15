@@ -2,6 +2,9 @@ extends Node2D
 @onready var movingset = get_tree().get_nodes_in_group("movings")
 @onready var killbricks := get_tree().get_nodes_in_group("killbricks")
 @onready var camera = get_tree().get_first_node_in_group("camera")
+@onready var golden: Node = get_tree().get_first_node_in_group("goldenmushroom")
+@onready var movingsetposit = movingset.global_position
+@onready var goldenposit = golden.global_position
 @onready var difflevel: Label = $CanvasLayer/MarginContainer/HBoxContainer2/HBoxContainer/difflevel
 @onready var iterator: int = 0
 @onready var killarray: Array = [killbricks]
@@ -46,15 +49,24 @@ func _on_music_finished() -> void:
 
 
 func _on_child_entered_tree(node: Node) -> void:
-	if node.is_in_group("killbricks"):
-		var first = "killbrick"
-		node.name = first + str(iterator)
-		node.add_to_group("killbricks")
-		node.get_child(0).disabled = true
-		await get_tree().create_timer(1).timeout
-		node.get_child(0).disabled = false
-		iterator + 1
-		print(node.name)
-	else:
-		return
+	if node.is_in_group("killbricks") && golden != null:
+		node.name = node.name + str(iterator)
+		iterator = iterator + 1
+		while node.global_position.distance_to(goldenposit) < 50:
+			node.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+	pass # Replace with function body.
+
+
+func _on_goldenmushroom_body_entered(body: Node2D) -> void:
+	for n in difficulty.difficultyer:
+		var duplicator: Area2D = $killbrick.duplicate()
+		duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+		var duposit = Vector2(duplicator.global_position)
+		print(duposit)
+		duplicator.name = str(iterator)
+		iterator += 1
+		while duposit.distance_to(goldenposit) < 50 || duposit.distance_to(movingsetposit) < 50:
+			duposit = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+		get_parent().add_child(duplicator)
+			
 	pass # Replace with function body.

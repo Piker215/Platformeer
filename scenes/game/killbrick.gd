@@ -13,6 +13,7 @@ extends Area2D
 @onready var col := get_tree().get_nodes_in_group("killbricks")
 @onready var killsfx: AudioStreamPlayer = $killsfx
 @onready var killarray : Array = [killbricks]
+@onready var iterator = 0
 
 var difficulter = difficulty.difficultyer
 var scaler = 1
@@ -58,29 +59,33 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 	#for n in get_tree().get_node_count_in_group("killbricks"):
 		#distance = global_position.distance_to(killbricks[n - 1].position)
 #	collisioner = duplicator.get_child(0)
-	for n in difficulter:
-		var killbrickid: String = "killbrick"
-		var duplicator = duplicate()
-		get_parent().add_child(duplicator)
-		var positionnew = duplicator.position
-		var goldenshroomy := global_position.distance_to(goldy.position)
-		var playerrealdist := global_position.distance_to(playerreal.position)
-		print(goldenshroomy)
-		print(playerrealdist)
-		print(position)
-		duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
-		for i in killbricks:
-			var killbrick : Area2D = killarray[i]
-			if killbrick.global_position.distance_to(groupp.position) < 50:
-				duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
-			else:
-				return
-		if playerrealdist < 50 || goldenshroomy < 50:
-			duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+	#for n in difficulter:
+		#var killbrickid: String = "killbrick"
+		#var duplicator = duplicate()
+		#duplicator.name = str(iterator)
+		#iterator = iterator + 1
+		#get_parent().add_child(duplicator)
+		#var positionnew = duplicator.position
+		#var goldenshroomy := global_position.distance_to(goldy.position)
+		#var playerrealdist := global_position.distance_to(playerreal.position)
+		#duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+		#print(killbricks)
+		#for i in killbricks:
+			#var killbrick = distance_to_player(killbricks[i])
+			#if killbrick.global_position.distance_to(groupp.position) < 50:
+				#duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+			#else:
+				#return
+		#if playerrealdist < 50 || goldenshroomy < 50:
+			#duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		#while distance < 100:
 			#position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 			#print("ayay")
 	pass 
+func distance_to_player(killbrick):
+	print(killbrick.position)
+	while killbrick.global_position.distance_to(killbrick) < 50:
+		killbrick.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 
 
 func _on_timer_timeout() -> void:

@@ -18,8 +18,8 @@ func close(close: Node):
 	global_position.distance_to(posite) < 300
 
 func _on_body_entered(body: Node2D) -> void:
+	print(position)
 	if body == player:
-		print(killbrick)
 		musicplayer.play_collect()
 		randomize()
 		position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
