@@ -12,4 +12,6 @@ func _process(delta: float) -> void:
 		text = "Dash"
 	elif ability.abilities == "invincibility":
 		text = "Invincibility"
+	elif ability.abilities == "stun":
+		text = "Stun"
 	pass

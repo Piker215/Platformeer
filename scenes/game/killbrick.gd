@@ -12,6 +12,7 @@ extends Area2D
 @onready var timer := get_node("../Timer")
 @onready var col := get_tree().get_nodes_in_group("killbricks")
 @onready var killsfx: AudioStreamPlayer = $killsfx
+@onready var killarray : Array = [killbricks]
 
 var difficulter = difficulty.difficultyer
 var scaler = 1
@@ -68,12 +69,12 @@ func _on_goldenmushroom_body_entered(body: CharacterBody2D) -> void:
 		print(playerrealdist)
 		print(position)
 		duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
-		#for i in killbricks:
-			#var killbrick : Node = killbricks[i]
-			#if killbrick.global_position.distance_to(groupp.position) < 50:
-				#duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
-			#else:
-				#return
+		for i in killbricks:
+			var killbrick : Area2D = killarray[i]
+			if killbrick.global_position.distance_to(groupp.position) < 50:
+				duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+			else:
+				return
 		if playerrealdist < 50 || goldenshroomy < 50:
 			duplicator.position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		#while distance < 100:

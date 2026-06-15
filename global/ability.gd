@@ -1,2 +1,2 @@
 extends Node
-var abilities = "stun"
+var abilities = "dash"

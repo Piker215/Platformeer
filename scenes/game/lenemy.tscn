@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cp7ffbj8bpw6g" path="res://assets/lenemy.png" id="3_iad2r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nckey"]
-size = Vector2(10, 8)
+size = Vector2(10, 6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3n5l8"]
 atlas = ExtResource("3_iad2r")

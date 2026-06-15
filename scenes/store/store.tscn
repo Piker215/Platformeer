@@ -249,7 +249,7 @@ offset_bottom = -149.0
 theme_override_fonts/font = ExtResource("2_aloq4")
 text = "Press \"Enter\" to return"
 
-[node name="teleporter2" type="Area2D" parent="." unique_id=644278136 groups=["storeplayer"]]
+[node name="teleporter2" type="Area2D" parent="." unique_id=644278136]
 position = Vector2(-1278, 11)
 script = ExtResource("8_ler8j")
 

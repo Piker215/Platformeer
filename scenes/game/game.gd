@@ -4,11 +4,13 @@ extends Node2D
 @onready var camera = get_tree().get_first_node_in_group("camera")
 @onready var difflevel: Label = $CanvasLayer/MarginContainer/HBoxContainer2/HBoxContainer/difflevel
 @onready var iterator: int = 0
+@onready var killarray: Array = [killbricks]
 #var duplicator := $mushroom.duplicate()
 #var wait := await get_tree().await_timer(1.5).timeout
 
 
 func _ready() -> void:
+	stunny.status = 0
 	camera.make_current()
 	$Timer.start()
 	if difficulty.difficultyer == 6:

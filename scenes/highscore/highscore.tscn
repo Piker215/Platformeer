@@ -45,6 +45,7 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.0035191667, 0.0035191681, 0.0035191672, 1)
 theme_override_fonts/font = ExtResource("2_kcsy8")
 text = "Press \"Enter\" to return to game
 Press \"Escape\" to return to menu"
@@ -57,11 +58,13 @@ size_flags_horizontal = 4
 [node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1243434706]
 layout_mode = 2
 size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.0056611504, 0.0056611514, 0.00566115, 1)
 theme_override_fonts/font = ExtResource("2_kcsy8")
 text = "Score:"
 
 [node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2119492809]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.83137256, 0, 1)
 theme_override_fonts/font = ExtResource("2_kcsy8")
 script = ExtResource("1_vlfh2")
 
@@ -73,11 +76,13 @@ size_flags_vertical = 4
 [node name="Label5" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=280182446]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.0035191667, 0.0035191681, 0.0035191672, 1)
 theme_override_fonts/font = ExtResource("2_kcsy8")
 text = "Highscore:"
 
 [node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1070173057]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.83137256, 0, 1)
 theme_override_fonts/font = ExtResource("2_kcsy8")
 script = ExtResource("2_a3pvi")
 
