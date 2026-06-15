@@ -4,6 +4,7 @@ extends Area2D
 @onready var killbrick := get_tree().get_nodes_in_group("killbricks")
 @onready var game := get_node("../game")
 @onready var goldsfx: AudioStreamPlayer = $goldsfx
+@onready var tree: StaticBody2D = $"../tree"
 
 
 func _ready() -> void:
@@ -37,3 +38,9 @@ func _on_body_entered(body: Node2D) -> void:
 			money.moneys += 5
 		points.pointse += 1 
 	pass 
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("killbricks") || area == tree:
+		position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
+	pass # Replace with function body.

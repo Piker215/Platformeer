@@ -791,7 +791,7 @@ zoom = Vector2(2.5, 2.5)
 [node name="lenemy" parent="." unique_id=1732548339 instance=ExtResource("3_4j704")]
 position = Vector2(506, 1)
 
-[node name="killbrick" type="Area2D" parent="." unique_id=314723096 groups=["killbricks", "movings"]]
+[node name="killbrick" type="Area2D" parent="." unique_id=314723096 groups=["killbricks"]]
 position = Vector2(-103, 17)
 script = ExtResource("5_5jirj")
 
@@ -996,6 +996,7 @@ script = ExtResource("4_5jirj")
 [connection signal="body_entered" from="teleporter1" to="playerreal" method="_on_teleporter_1_body_entered"]
 [connection signal="body_entered" from="Area2D" to="playerreal" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="playerreal" method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="goldenmushroom" to="goldenmushroom" method="_on_area_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="." method="_on_goldenmushroom_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="lenemy" method="_on_goldenmushroom_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="killbrick" method="_on_goldenmushroom_body_entered"]

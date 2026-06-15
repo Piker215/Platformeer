@@ -11,6 +11,9 @@
 [ext_resource type="Script" uid="uid://r8pv2vl00mw2" path="res://scenes/store/teleporter.gd" id="8_xbntn"]
 [ext_resource type="Script" uid="uid://bo65xo1opfqyr" path="res://scenes/store/stun.gd" id="10_7f1bx"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yimk0"]
+size = Vector2(145, 1709)
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_ler8j"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_yimk0"]
@@ -115,14 +118,27 @@ size = Vector2(111.36842, 40.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atuvt"]
 size = Vector2(107, 41)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yimk0"]
-size = Vector2(145, 1709)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7f1bx"]
 size = Vector2(101.37308, 40.37579)
 
 [node name="store" type="Node2D" unique_id=361815150]
 script = ExtResource("1_nhl0m")
+
+[node name="teleporter" type="Area2D" parent="." unique_id=1082462043]
+position = Vector2(1295, 3)
+script = ExtResource("8_xbntn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleporter" unique_id=698698494]
+position = Vector2(-649, -105)
+shape = SubResource("RectangleShape2D_yimk0")
+
+[node name="teleporter2" type="Area2D" parent="." unique_id=644278136]
+position = Vector2(-1278, 11)
+script = ExtResource("8_ler8j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teleporter2" unique_id=1152984803]
+position = Vector2(631, -10)
+shape = SubResource("RectangleShape2D_yimk0")
 
 [node name="background" type="Sprite2D" parent="." unique_id=1284924566]
 position = Vector2(24.500206, -3)
@@ -249,22 +265,6 @@ offset_bottom = -147.0
 theme_override_fonts/font = ExtResource("2_aloq4")
 text = "Press \"Enter\" to return"
 
-[node name="teleporter2" type="Area2D" parent="." unique_id=644278136]
-position = Vector2(-1278, 11)
-script = ExtResource("8_ler8j")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="teleporter2" unique_id=1152984803]
-position = Vector2(-59, -12)
-shape = SubResource("RectangleShape2D_yimk0")
-
-[node name="teleporter" type="Area2D" parent="." unique_id=1082462043]
-position = Vector2(1295, 3)
-script = ExtResource("8_xbntn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="teleporter" unique_id=698698494]
-position = Vector2(62, -68)
-shape = SubResource("RectangleShape2D_yimk0")
-
 [node name="stun" type="Area2D" parent="." unique_id=384005849]
 position = Vector2(-177.65149, -231.8459)
 script = ExtResource("10_7f1bx")
@@ -275,8 +275,8 @@ scale = Vector2(1, 0.9999995)
 skew = 0.26179934
 shape = SubResource("RectangleShape2D_7f1bx")
 
+[connection signal="body_entered" from="teleporter" to="teleporter" method="_on_body_entered"]
+[connection signal="body_entered" from="teleporter2" to="teleporter2" method="_on_body_entered"]
 [connection signal="body_entered" from="invincibility" to="invincibility" method="_on_body_entered"]
 [connection signal="body_entered" from="dash" to="dash" method="_on_body_entered"]
-[connection signal="body_entered" from="teleporter2" to="teleporter2" method="_on_body_entered"]
-[connection signal="body_entered" from="teleporter" to="teleporter" method="_on_body_entered"]
 [connection signal="body_entered" from="stun" to="stun" method="_on_body_entered"]

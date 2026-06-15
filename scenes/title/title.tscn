@@ -13,10 +13,10 @@
 distance = -1.8140869
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lq0lj"]
-size = Vector2(46.5, 695)
+size = Vector2(46.5, 359)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aa56r"]
-size = Vector2(37, 626.25)
+size = Vector2(37, 314.125)
 
 [node name="title" type="Node2D" unique_id=251634216]
 script = ExtResource("1_7hvf5")
@@ -48,7 +48,7 @@ position = Vector2(1072, 486)
 script = ExtResource("3_g4gru")
 
 [node name="gmteleporter" type="CollisionShape2D" parent="gameteleporter" unique_id=1484529427]
-position = Vector2(-88.25, -279.5)
+position = Vector2(-88.25, -447.5)
 shape = SubResource("RectangleShape2D_lq0lj")
 
 [node name="storeteleporter" type="Area2D" parent="." unique_id=279058160]
@@ -56,7 +56,7 @@ position = Vector2(-259.10004, 232.33798)
 script = ExtResource("4_7s5iw")
 
 [node name="strteleporter" type="CollisionShape2D" parent="storeteleporter" unique_id=1360677604]
-position = Vector2(62.100037, -13.337982)
+position = Vector2(62.100037, -169.40048)
 shape = SubResource("RectangleShape2D_aa56r")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=150953199]

@@ -20,6 +20,10 @@ var scaler = 1
 var number = difficulter * scaler
 var adder = 1
 func _ready() -> void:
+	var col = get_child(0)
+	col.disabled = true
+	await get_tree().create_timer(1).timeout
+	col.disabled = false
 #	collisioner.disabled = true
 	randomize()
 	#animator.play("default")

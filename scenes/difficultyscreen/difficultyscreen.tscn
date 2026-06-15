@@ -18,7 +18,7 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_xhdkj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3b1v"]
-size = Vector2(1, 1.0195899)
+size = Vector2(1, 0.9882157)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lodve"]
 size = Vector2(71, 32)
@@ -40,8 +40,8 @@ scale = Vector2(2.259, 2.5071173)
 texture = ExtResource("2_xhdkj")
 
 [node name="safespr" type="Sprite2D" parent="." unique_id=1548080067]
-position = Vector2(-159.86603, -73.5)
-scale = Vector2(77, 33.184)
+position = Vector2(-159.93658, -73.23668)
+scale = Vector2(77, 32.63879)
 skew = 0.2617994
 texture = SubResource("CanvasTexture_dik47")
 
@@ -75,7 +75,7 @@ skew = 0.26179934
 script = ExtResource("4_dik47")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="safe" unique_id=139360828]
-position = Vector2(0.05020809, -0.007843018)
+position = Vector2(0.050209045, 0.007841349)
 shape = SubResource("RectangleShape2D_b3b1v")
 
 [node name="easy" type="Area2D" parent="." unique_id=1898254930 groups=["difficulty"]]
