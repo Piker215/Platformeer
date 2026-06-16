@@ -5,18 +5,20 @@
 [ext_resource type="Script" uid="uid://ct2udtquixvp5" path="res://scenes/title/gameteleporter.gd" id="3_g4gru"]
 [ext_resource type="FontFile" uid="uid://co0jg3tem4vgs" path="res://assets/Pixel Digivolve.otf" id="3_yjwoi"]
 [ext_resource type="Script" uid="uid://bp2phor4epatn" path="res://scenes/title/storeteleporter.gd" id="4_7s5iw"]
+[ext_resource type="Script" uid="uid://cra1pvb3pjgj5" path="res://scenes/title/strteleporter.gd" id="6_7s5iw"]
 [ext_resource type="Texture2D" uid="uid://brnuah70w1mgb" path="res://assets/background.png" id="6_g4gru"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6e84v"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lq0lj"]
-distance = -1.8140869
+[ext_resource type="Script" uid="uid://d341hxgklb57o" path="res://scenes/title/gmteleporter.gd" id="8_k35rw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lq0lj"]
 size = Vector2(46.5, 359)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aa56r"]
 size = Vector2(37, 314.125)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6e84v"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lq0lj"]
+distance = -1.8140869
 
 [node name="title" type="Node2D" unique_id=251634216]
 script = ExtResource("1_7hvf5")
@@ -30,6 +32,24 @@ texture = ExtResource("6_g4gru")
 [node name="Player" parent="." unique_id=1451863589 instance=ExtResource("2_yjwoi")]
 position = Vector2(393, 216)
 
+[node name="gameteleporter" type="Area2D" parent="." unique_id=248041627]
+position = Vector2(1072, 486)
+script = ExtResource("3_g4gru")
+
+[node name="gmteleporter" type="CollisionShape2D" parent="gameteleporter" unique_id=1484529427]
+position = Vector2(-21, -386)
+shape = SubResource("RectangleShape2D_lq0lj")
+script = ExtResource("8_k35rw")
+
+[node name="storeteleporter" type="Area2D" parent="." unique_id=279058160]
+position = Vector2(-259.1001, 232.33798)
+script = ExtResource("4_7s5iw")
+
+[node name="strteleporter" type="CollisionShape2D" parent="storeteleporter" unique_id=1360677604]
+position = Vector2(342.1001, -115.33798)
+shape = SubResource("RectangleShape2D_aa56r")
+script = ExtResource("6_7s5iw")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2104537456]
 position = Vector2(391, 242)
 disable_mode = 1
@@ -42,22 +62,6 @@ shape = SubResource("WorldBoundaryShape2D_lq0lj")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1079281767]
 position = Vector2(389, 229)
-
-[node name="gameteleporter" type="Area2D" parent="." unique_id=248041627]
-position = Vector2(1072, 486)
-script = ExtResource("3_g4gru")
-
-[node name="gmteleporter" type="CollisionShape2D" parent="gameteleporter" unique_id=1484529427]
-position = Vector2(-88.25, -447.5)
-shape = SubResource("RectangleShape2D_lq0lj")
-
-[node name="storeteleporter" type="Area2D" parent="." unique_id=279058160]
-position = Vector2(-259.10004, 232.33798)
-script = ExtResource("4_7s5iw")
-
-[node name="strteleporter" type="CollisionShape2D" parent="storeteleporter" unique_id=1360677604]
-position = Vector2(62.100037, -169.40048)
-shape = SubResource("RectangleShape2D_aa56r")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=150953199]
 
@@ -100,6 +104,9 @@ To Start"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=865905818]
+layout_mode = 2
+
 [node name="Label" type="Label" parent="." unique_id=2051065581]
 offset_left = 252.0
 offset_top = 169.0
@@ -115,3 +122,4 @@ polygon = PackedVector2Array(239, 251, 213, 251, 213, 258, 203, 251, 213, 242, 2
 
 [connection signal="body_entered" from="gameteleporter" to="gameteleporter" method="_on_body_entered"]
 [connection signal="body_entered" from="storeteleporter" to="storeteleporter" method="_on_body_entered"]
+[connection signal="ready" from="storeteleporter/strteleporter" to="storeteleporter/strteleporter" method="_on_ready"]

@@ -124,15 +124,15 @@ size = Vector2(101.37308, 40.37579)
 [node name="store" type="Node2D" unique_id=361815150]
 script = ExtResource("1_nhl0m")
 
-[node name="teleporter" type="Area2D" parent="." unique_id=1082462043]
+[node name="teleporter" type="StaticBody2D" parent="." unique_id=2094818225]
 position = Vector2(1295, 3)
 script = ExtResource("8_xbntn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleporter" unique_id=698698494]
-position = Vector2(-649, -105)
+position = Vector2(-645, -17)
 shape = SubResource("RectangleShape2D_yimk0")
 
-[node name="teleporter2" type="Area2D" parent="." unique_id=644278136]
+[node name="teleporter2" type="StaticBody2D" parent="." unique_id=1554194110]
 position = Vector2(-1278, 11)
 script = ExtResource("8_ler8j")
 
@@ -275,8 +275,6 @@ scale = Vector2(1, 0.9999995)
 skew = 0.26179934
 shape = SubResource("RectangleShape2D_7f1bx")
 
-[connection signal="body_entered" from="teleporter" to="teleporter" method="_on_body_entered"]
-[connection signal="body_entered" from="teleporter2" to="teleporter2" method="_on_body_entered"]
 [connection signal="body_entered" from="invincibility" to="invincibility" method="_on_body_entered"]
 [connection signal="body_entered" from="dash" to="dash" method="_on_body_entered"]
 [connection signal="body_entered" from="stun" to="stun" method="_on_body_entered"]
