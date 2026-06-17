@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://brnuah70w1mgb" path="res://assets/background.png" id="2_xhdkj"]
 [ext_resource type="FontFile" uid="uid://co0jg3tem4vgs" path="res://assets/Pixel Digivolve.otf" id="3_41qgp"]
 [ext_resource type="Script" uid="uid://cw6cv3n0ef0mg" path="res://scenes/difficultyscreen/easy.gd" id="3_v7fuq"]
+[ext_resource type="Script" uid="uid://36g7ys5vevcq" path="res://scenes/difficultyscreen/impossible.gd" id="4_b3b1v"]
 [ext_resource type="Script" uid="uid://b4p0utgv6auvu" path="res://scenes/difficultyscreen/safe.gd" id="4_dik47"]
 [ext_resource type="Script" uid="uid://bfisarraufpjq" path="res://scenes/difficultyscreen/medium.gd" id="4_drkpv"]
 [ext_resource type="Script" uid="uid://bc8kc4ty67v8y" path="res://scenes/difficultyscreen/hard.gd" id="5_8ditd"]
@@ -13,9 +14,14 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xwp1e"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_aeene"]
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_41qgp"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xhdkj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aeene"]
+size = Vector2(71.267944, 31.546783)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3b1v"]
 size = Vector2(1, 0.9882157)
@@ -29,7 +35,7 @@ size = Vector2(71, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5f6vc"]
 size = Vector2(77, 32)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_28v6e"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_88eyq"]
 
 [node name="difficulty" type="Node2D" unique_id=1561517176]
 script = ExtResource("1_532yp")
@@ -51,6 +57,12 @@ scale = Vector2(77.00001, 32.000004)
 skew = 0.2617994
 texture = SubResource("CanvasTexture_xwp1e")
 
+[node name="impsr" type="Sprite2D" parent="." unique_id=289325487]
+position = Vector2(169.5, -72)
+scale = Vector2(71, 31.999998)
+skew = 0.2617994
+texture = SubResource("CanvasTexture_aeene")
+
 [node name="medspr" type="Sprite2D" parent="." unique_id=1670843784]
 position = Vector2(4.499998, -73)
 scale = Vector2(71, 31.999998)
@@ -67,6 +79,15 @@ texture = SubResource("CanvasTexture_xhdkj")
 position = Vector2(6, 0)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1514412883]
+
+[node name="impossible" type="Area2D" parent="." unique_id=1329603900]
+script = ExtResource("4_b3b1v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="impossible" unique_id=742823722]
+position = Vector2(169.57076, -71.76408)
+scale = Vector2(1, 0.9999998)
+skew = 0.26179934
+shape = SubResource("RectangleShape2D_aeene")
 
 [node name="safe" type="Area2D" parent="." unique_id=1469301160]
 position = Vector2(-163.5, -73.5)
@@ -108,8 +129,9 @@ shape = SubResource("RectangleShape2D_5f6vc")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=239938371]
 position = Vector2(2, 35)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=576504741]
-shape = SubResource("WorldBoundaryShape2D_28v6e")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1730480203]
+position = Vector2(3, -14)
+shape = SubResource("WorldBoundaryShape2D_88eyq")
 
 [node name="diftxt" type="Label" parent="." unique_id=1316385344]
 offset_left = -81.0
@@ -148,14 +170,27 @@ theme_override_fonts/font = ExtResource("3_41qgp")
 text = "Easy"
 metadata/_edit_use_anchors_ = true
 
+[node name="impossibletxt" type="Label" parent="." unique_id=230349139]
+offset_left = 130.0
+offset_top = -88.0
+offset_right = 209.0
+offset_bottom = -56.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_41qgp")
+theme_override_font_sizes/font_size = 10
+text = "Impossible"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="safetxt" type="Label" parent="." unique_id=40441001]
-offset_left = -182.0
-offset_top = -85.0
-offset_right = -141.0
-offset_bottom = -62.0
+offset_left = -181.0
+offset_top = -84.0
+offset_right = -140.0
+offset_bottom = -61.0
 theme_override_fonts/font = ExtResource("3_41qgp")
 text = "safe"
 
+[connection signal="body_entered" from="impossible" to="impossible" method="_on_body_entered"]
 [connection signal="body_entered" from="safe" to="safe" method="_on_body_entered"]
 [connection signal="body_entered" from="easy" to="easy" method="_on_body_entered"]
 [connection signal="body_entered" from="medium" to="medium" method="_on_body_entered"]

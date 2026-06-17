@@ -14,6 +14,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
+	if speedy.speedy == 1:
+		speed += 5
 	velocity = speed * direction
 	if speed == 1000:
 		if velocity.x < 0:

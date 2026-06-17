@@ -5,10 +5,9 @@
 [ext_resource type="Script" uid="uid://hos5kpdi0r14" path="res://scenes/store/invincibility.gd" id="2_codmc"]
 [ext_resource type="Texture2D" uid="uid://brnuah70w1mgb" path="res://assets/background.png" id="2_yimk0"]
 [ext_resource type="Script" uid="uid://cfk05ikebsy3p" path="res://scenes/store/dash.gd" id="3_dq3y1"]
+[ext_resource type="Script" uid="uid://bx6j0bvqbt5lj" path="res://scenes/store/dashspr.gd" id="3_ler8j"]
 [ext_resource type="Texture2D" uid="uid://i5sr7pho6bpm" path="res://assets/playerreal (1).png" id="4_aloq4"]
 [ext_resource type="Script" uid="uid://bmox5pfkap6e" path="res://scenes/store/storeplayer.gd" id="4_yimk0"]
-[ext_resource type="Script" uid="uid://bljfjodool5sn" path="res://scenes/store/teleporter_2.gd" id="8_ler8j"]
-[ext_resource type="Script" uid="uid://r8pv2vl00mw2" path="res://scenes/store/teleporter.gd" id="8_xbntn"]
 [ext_resource type="Script" uid="uid://bo65xo1opfqyr" path="res://scenes/store/stun.gd" id="10_7f1bx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yimk0"]
@@ -109,6 +108,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xpmfr"]
+size = Vector2(20, 23)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jmp1n"]
 
@@ -126,7 +126,6 @@ script = ExtResource("1_nhl0m")
 
 [node name="teleporter" type="StaticBody2D" parent="." unique_id=2094818225]
 position = Vector2(1295, 3)
-script = ExtResource("8_xbntn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleporter" unique_id=698698494]
 position = Vector2(-645, -17)
@@ -134,7 +133,6 @@ shape = SubResource("RectangleShape2D_yimk0")
 
 [node name="teleporter2" type="StaticBody2D" parent="." unique_id=1554194110]
 position = Vector2(-1278, 11)
-script = ExtResource("8_ler8j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="teleporter2" unique_id=1152984803]
 position = Vector2(631, -10)
@@ -162,6 +160,7 @@ position = Vector2(74.5, -119.5)
 scale = Vector2(107, 41)
 skew = 0.2617994
 texture = SubResource("CanvasTexture_xbntn")
+script = ExtResource("3_ler8j")
 
 [node name="invtxt" type="Label" parent="." unique_id=1701721688]
 offset_left = -100.0
@@ -205,6 +204,7 @@ script = ExtResource("4_yimk0")
 sprite_frames = SubResource("SpriteFrames_8tcqn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="storeplayer" unique_id=1974902029]
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_xpmfr")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=39511480]
@@ -276,5 +276,6 @@ skew = 0.26179934
 shape = SubResource("RectangleShape2D_7f1bx")
 
 [connection signal="body_entered" from="invincibility" to="invincibility" method="_on_body_entered"]
+[connection signal="body_entered" from="dash" to="dashspr" method="_on_dash_body_entered"]
 [connection signal="body_entered" from="dash" to="dash" method="_on_body_entered"]
 [connection signal="body_entered" from="stun" to="stun" method="_on_body_entered"]

@@ -19,7 +19,7 @@ func close(close: Node):
 	global_position.distance_to(posite) < 300
 
 func _on_body_entered(body: Node2D) -> void:
-	print(position)
+	speedy.speedy = 0
 	if body == player:
 		musicplayer.play_collect()
 		randomize()
