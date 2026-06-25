@@ -19,7 +19,7 @@ func close(close: Node):
 	global_position.distance_to(posite) < 300
 
 func _on_body_entered(body: Node2D) -> void:
-	player.speed = 200
+	player.speed = 300
 	if body == player:
 		musicplayer.play_collect()
 		randomize()
@@ -36,6 +36,8 @@ func _on_body_entered(body: Node2D) -> void:
 			money.moneys += 15
 		elif difficulty.difficultyer == 0:
 			money.moneys += 5
+		elif difficulty.difficultyer == 30:
+			money.moneys += 20
 		points.pointse += 1 
 	pass 
 

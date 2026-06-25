@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ctt5la1v0yc7u" path="res://assets/mushroom.png" id="7_2a8rs"]
 [ext_resource type="Script" uid="uid://dp2cv13l86vao" path="res://scenes/game/timer.gd" id="7_ftsea"]
 [ext_resource type="Script" uid="uid://n38smltvyc7" path="res://scenes/game/progress.gd" id="8_otnwt"]
+[ext_resource type="Texture2D" uid="uid://cb34y8iiuetsf" path="res://assets/borderreal.png" id="10_3xj4h"]
 [ext_resource type="Script" uid="uid://b70tunkhp6kyu" path="res://scenes/game/colkick.gd" id="10_ftsea"]
 [ext_resource type="FontFile" uid="uid://co0jg3tem4vgs" path="res://assets/Pixel Digivolve.otf" id="11_vaxfo"]
 [ext_resource type="Texture2D" uid="uid://b63jetytdci5m" path="res://assets/tilemap.png" id="12_5jirj"]
@@ -703,7 +704,7 @@ animations = [{
 size = Vector2(20, 567.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibkli"]
-size = Vector2(1150, 22)
+size = Vector2(574, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vaxfo"]
 size = Vector2(536.3594, 2205)
@@ -713,12 +714,6 @@ size = Vector2(594, 2189)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5jirj"]
 radius = 11.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5jirj"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_5jirj"]
-specular_texture = SubResource("PlaceholderTexture2D_5jirj")
-specular_color = Color(0.56805485, 0.056203425, 9.62615e-08, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftsea"]
 size = Vector2(14, 15)
@@ -755,6 +750,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5v6r0"]
+size = Vector2(486, 78.54181)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyinl"]
+size = Vector2(1186.5, 63.367783)
+
 [sub_resource type="LabelSettings" id="LabelSettings_3xj4h"]
 font = ExtResource("11_vaxfo")
 
@@ -775,6 +776,9 @@ font = ExtResource("11_vaxfo")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_otnwt"]
 size = Vector2(36, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xj4h"]
+size = Vector2(98.25, 689)
 
 [node name="game" type="Node2D" unique_id=1713997475]
 script = ExtResource("1_87uf6")
@@ -821,7 +825,7 @@ shape = SubResource("RectangleShape2D_qbsmt")
 position = Vector2(2, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=9879989]
-position = Vector2(-2, 295)
+position = Vector2(-290, 295.5)
 shape = SubResource("RectangleShape2D_ibkli")
 
 [node name="collider" type="StaticBody2D" parent="." unique_id=759400898]
@@ -878,25 +882,10 @@ shape = SubResource("RectangleShape2D_5jirj")
 position = Vector2(-350, 190)
 shape = SubResource("CircleShape2D_5jirj")
 
-[node name="border" type="Sprite2D" parent="." unique_id=1217615234]
-position = Vector2(-0.5000181, 285)
-scale = Vector2(1100.9999, 3.9999888)
-texture = SubResource("CanvasTexture_5jirj")
-
-[node name="border2" type="Sprite2D" parent="." unique_id=173517796]
-position = Vector2(-0.5000181, -269.5)
-scale = Vector2(1100.9999, 5.000025)
-texture = SubResource("CanvasTexture_5jirj")
-
-[node name="border3" type="Sprite2D" parent="." unique_id=422841288]
-position = Vector2(-536.5, 8.00002)
-scale = Vector2(5.000032, 566)
-texture = SubResource("CanvasTexture_5jirj")
-
-[node name="border4" type="Sprite2D" parent="." unique_id=895877444]
-position = Vector2(535.50006, 11.499998)
-scale = Vector2(5.0000186, 559)
-texture = SubResource("CanvasTexture_5jirj")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2705500]
+position = Vector2(45.500027, 53.500004)
+scale = Vector2(1.2049999, 1.4419998)
+texture = ExtResource("10_3xj4h")
 
 [node name="tree" type="StaticBody2D" parent="." unique_id=261560666]
 position = Vector2(394, 90)
@@ -918,6 +907,20 @@ position = Vector2(-1.1728568, -2.59021)
 scale = Vector2(0.81249964, 0.9516129)
 sprite_frames = SubResource("SpriteFrames_vaxfo")
 frame_progress = 0.5133538
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1952575871]
+position = Vector2(697.6079, 388.5418)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1966363916]
+position = Vector2(-448.6079, -29.270905)
+shape = SubResource("RectangleShape2D_5v6r0")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1309903380]
+position = Vector2(832.27515, 281.2646)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1522520659]
+position = Vector2(-787.52515, -553.9485)
+shape = SubResource("RectangleShape2D_uyinl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1573309126]
 layer = 128
@@ -993,6 +996,16 @@ position = Vector2(320.95642, 2.8255615)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="treespawn" unique_id=1601968090]
 position = Vector2(90.04358, 53.17444)
 shape = SubResource("RectangleShape2D_otnwt")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1440811765]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1589481840]
+position = Vector2(-563.125, 44)
+shape = SubResource("RectangleShape2D_3xj4h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1667849885]
+position = Vector2(596.25, 78)
+shape = SubResource("RectangleShape2D_3xj4h")
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="body_entered" from="killbrick" to="killbrick" method="_on_body_entered"]

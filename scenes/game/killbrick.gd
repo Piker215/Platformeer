@@ -38,10 +38,6 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: CharacterBody2D) -> void:
-	if body.is_in_group("killbricks"):
-		var bodeh = body
-		while body_entered:
-			body.position = Vector2(randf_range(500, -500), randf_range(-200, 200))
 	if body == groupp:
 		musicplayer.play_death()
 		print("You died!")

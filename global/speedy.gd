@@ -1,2 +1,2 @@
 extends Node
-var speedy = 0
+var speedy: int = 0
