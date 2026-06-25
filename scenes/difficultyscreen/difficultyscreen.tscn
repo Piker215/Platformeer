@@ -57,7 +57,7 @@ scale = Vector2(77.00001, 32.000004)
 skew = 0.2617994
 texture = SubResource("CanvasTexture_xwp1e")
 
-[node name="impsr" type="Sprite2D" parent="." unique_id=289325487]
+[node name="impspr" type="Sprite2D" parent="." unique_id=289325487]
 position = Vector2(169.5, -72)
 scale = Vector2(71, 31.999998)
 skew = 0.2617994
@@ -175,7 +175,7 @@ offset_left = 130.0
 offset_top = -88.0
 offset_right = 209.0
 offset_bottom = -56.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_41qgp")
 theme_override_font_sizes/font_size = 10
 text = "Impossible"

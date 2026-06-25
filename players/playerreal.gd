@@ -15,7 +15,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
 	if speedy.speedy == 1:
-		speed += 5
+		speed += 1
 	velocity = speed * direction
 	if speed == 1000:
 		if velocity.x < 0:
@@ -107,4 +107,10 @@ func _on_teleporter_3_body_entered(body: Node2D) -> void:
 
 func _on_teleporter_4_body_entered(body: Node2D) -> void:
 	position = Vector2(0, -200)
+	pass # Replace with function body.
+
+
+func _on_goldenmushroom_body_entered(body: Node2D) -> void:
+	speed = 300
+	speedy.speedy = 1
 	pass # Replace with function body.

@@ -773,6 +773,9 @@ font = ExtResource("11_vaxfo")
 [sub_resource type="LabelSettings" id="LabelSettings_otnwt"]
 font = ExtResource("11_vaxfo")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otnwt"]
+size = Vector2(36, 58)
+
 [node name="game" type="Node2D" unique_id=1713997475]
 script = ExtResource("1_87uf6")
 
@@ -984,6 +987,13 @@ layout_mode = 2
 label_settings = SubResource("LabelSettings_otnwt")
 script = ExtResource("4_5jirj")
 
+[node name="treespawn" type="Area2D" parent="." unique_id=596723922]
+position = Vector2(320.95642, 2.8255615)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="treespawn" unique_id=1601968090]
+position = Vector2(90.04358, 53.17444)
+shape = SubResource("RectangleShape2D_otnwt")
+
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="body_entered" from="killbrick" to="killbrick" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="playerreal" method="_on_timer_timeout"]
@@ -998,6 +1008,7 @@ script = ExtResource("4_5jirj")
 [connection signal="body_exited" from="Area2D" to="playerreal" method="_on_area_2d_body_exited"]
 [connection signal="area_entered" from="goldenmushroom" to="goldenmushroom" method="_on_area_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="." method="_on_goldenmushroom_body_entered"]
+[connection signal="body_entered" from="goldenmushroom" to="playerreal" method="_on_goldenmushroom_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="lenemy" method="_on_goldenmushroom_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="killbrick" method="_on_goldenmushroom_body_entered"]
 [connection signal="body_entered" from="goldenmushroom" to="goldenmushroom" method="_on_body_entered"]

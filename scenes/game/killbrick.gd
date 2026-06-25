@@ -1,17 +1,13 @@
 extends Area2D
 @onready var animator := $killbrickanim
 @onready var times = 0
-@onready var playerreal: CharacterBody2D = $"../playerreal"
 @onready var grouppp := get_tree().get_nodes_in_group("difficulty")
-@onready var goldy := get_node("../goldenmushroom")
 @onready var groupp := get_tree().get_first_node_in_group("movingse")
 @onready var killbricks : Array = get_tree().get_nodes_in_group("killbricks")
 @onready var n := get_tree().get_node_count_in_group("killbricks")
 #@onready var distance := global_position.distance_to(killbricks.position)
 @onready var difficults := get_tree().get_nodes_in_group("difficulty")
-@onready var timer := get_node("../Timer")
 @onready var col := get_tree().get_nodes_in_group("killbricks")
-@onready var killsfx: AudioStreamPlayer = $killsfx
 @onready var killarray : Array = [killbricks]
 @onready var iterator = 0
 
@@ -42,7 +38,10 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: CharacterBody2D) -> void:
-	
+	if body.is_in_group("killbricks"):
+		var bodeh = body
+		while body_entered:
+			body.position = Vector2(randf_range(500, -500), randf_range(-200, 200))
 	if body == groupp:
 		musicplayer.play_death()
 		print("You died!")

@@ -16,7 +16,7 @@ func _ready() -> void:
 	$Timer.start()
 	if difficulty.difficultyer == 6:
 		difflevel.text = "Hard"
-		difflevel.modulate = Color.RED
+		difflevel.modulate = Color.ORANGE_RED
 	elif difficulty.difficultyer == 3:
 		difflevel.text = "Medium"
 		difflevel.modulate = Color.YELLOW
@@ -26,6 +26,9 @@ func _ready() -> void:
 	elif difficulty.difficultyer == 0:
 		difflevel.text = "Safe"
 		difflevel.modulate = Color.AQUAMARINE
+	elif difficulty.difficultyer == 30:
+		difflevel.text = "Impossible"
+		difflevel.modulate = Color.RED
 	#for n in 4:
 	#duplicator
 	pass 
@@ -49,7 +52,6 @@ func _on_music_finished() -> void:
 func _on_child_entered_tree(node: Node) -> void:
 	if node.is_in_group("killbricks") && golden != null:
 		node.name = node.name + str(iterator)
-		iterator = iterator + 1
 	pass # Replace with function body.
 
 

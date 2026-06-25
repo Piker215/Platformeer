@@ -6,4 +6,6 @@ func _ready() -> void:
 	$medspr.modulate = Color.from_rgba8(44, 45, 45)
 	$easyspr.modulate = Color.from_rgba8(44, 45, 45)
 	$safespr.modulate = Color.from_rgba8(127, 255, 212)
+	$impspr.modulate = Color.from_rgba8(255, 0, 0)
+	$impossibletxt.modulate = Color.from_rgba8(44, 45, 45)
 	pass
