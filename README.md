@@ -29,3 +29,8 @@
 - This will be fixed in future releases.
 ## AI Usage
 - AI was used mostly for debugging the project and learning GDscript and it's usage in code is under 30%.
+## Changelogs
+- Fixed bugs with killbricks suddenly ending game due to them spawning on either the player or the mushroom
+- Added a more detailed barrier
+- Removed music for later improvement
+- Added more difficulty modes
